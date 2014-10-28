@@ -22,4 +22,34 @@ angular.module('myApp.route-planner', ['ngRoute'])
         GoogleMapApi.then(function (maps) {
             console.log(maps);
         });
+
+        var myDirectionsRequest =
+        {
+            origin: "Chicago, IL",
+                destination
+        :
+            "Los Angeles, CA",
+                waypoints
+        :
+            [
+                {
+                    location: "Joplin, MO",
+                    stopover: false
+                },
+                {
+                    location: "Oklahoma City, OK",
+                    stopover: true
+                }
+            ],
+                provideRouteAlternatives
+        :
+            false,
+                travelMode
+        :
+            TravelMode.DRIVING,
+                unitSystem
+        :
+            UnitSystem.IMPERIAL
+        }
+
     }]);
