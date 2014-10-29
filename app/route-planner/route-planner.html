@@ -1,1 +1,11 @@
-<ui-gmap-google-map center="map.center" zoom="map.zoom"></ui-gmap-google-map>
+<div id="panel">
+    <b>Start: </b>
+    <select ng-model="start" ng-options="location for location in locations">
+    </select>
+    <b>End: </b>
+    <select ng-model="end" ng-options="location for location in locations" ng-change="calcRoute()">
+    </select>
+</div>
+<div id="map-canvas"></div>
+
+<!--<ui-gmap-google-map center="map.center" zoom="map.zoom"></ui-gmap-google-map>-->
