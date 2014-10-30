@@ -55,3 +55,27 @@
      display: inline-block;
      overflow: scroll;
  }
+div.panel-heading {
+    background-color: #ffffff !important;
+    border-radius: 10px !important;
+    -webkit-transition: 0.7s;
+    -moz-transition: 0.7s;
+    -ms-transition: 0.7s;
+    -o-transition: 0.7s;
+    transition: 0.7s;
+}
+
+div.panel-heading:hover {
+    /*text-align: center !important;*/
+    margin-left: 3em !important;
+    color: blue !important;
+}
+
+a.accordion-toggle {
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+a.accordion-toggle:hover {
+    cursor: hand;
+}

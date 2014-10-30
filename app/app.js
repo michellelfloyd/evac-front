@@ -8,6 +8,16 @@ angular.module('myApp', [
   'myApp.route-planner',
   'myApp.version',
   'ui.bootstrap'
+    'ngRoute',
+    'myApp.who-what',
+    'myApp.people',
+    'myApp.pets',
+    'myApp.documents',
+    'myApp.valuables',
+    'myApp.travelTools',
+    'myApp.emergency',
+    'myApp.version',
+    'ui.bootstrap'
 ]).
 config(['$routeProvider', 'GoogleMapApiProvider'.ns(), function($routeProvider, GoogleMapApi) {
   $routeProvider.otherwise({redirectTo: '/view1'});
