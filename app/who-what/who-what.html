@@ -7,12 +7,17 @@
         margin-bottom: 0px; border-color: #6284E8; background-color: #ffffff;">
 
             <tabset justified="true">
-                <tab heading="Person 1">Person 1 content</tab>
-                <tab heading="Person 2">Person 2 content</tab>
-                <tab heading="Person 3">Person 3 content</tab>
-                <tab heading="Person 4">Person 4 content</tab>
-                <tab heading="Person 5">Person 5 content</tab>
-                <tab heading="Person 6">Person 6 content</tab>
+                <tab ng-repeat="person in people" heading="{{person.name}}">
+                    <div ng-repeat="supply in person.supplies">
+                        {{supply.name}}
+                    </div>
+                </tab>
+                <!--<tab heading="Person 1">Person 1 content{{person.name}}</tab>-->
+                <!--<tab heading="Person 2">Person 2 content</tab>-->
+                <!--<tab heading="Person 3">Person 3 content</tab>-->
+                <!--<tab heading="Person 4">Person 4 content</tab>-->
+                <!--<tab heading="Person 5">Person 5 content</tab>-->
+                <!--<tab heading="Person 6">Person 6 content</tab>-->
             </tabset>
 
         </accordion-group>
@@ -20,9 +25,14 @@
         border-bottom-width: 0px; margin-bottom: 0px; margin-top: 0px; border-color: #6284E8; background-color: #ffffff;">
 
             <tabset justified="true">
-                <tab heading="Pet 1">Pet 1 content</tab>
-                <tab heading="Pet 2">Pet 2 content</tab>
-                <tab heading="Pet 3">Pet 3 content</tab>
+                <tab ng-repeat="pet in pet" heading="{{pet.name}}">
+                    <div ng-repeat="supply in pet.supplies">
+                        {{supply.name}}
+                    </div>
+                </tab>
+                <!--<tab heading="Pet 1">Pet 1 content</tab>-->
+                <!--<tab heading="Pet 2">Pet 2 content</tab>-->
+                <!--<tab heading="Pet 3">Pet 3 content</tab>-->
             </tabset>
 
         </accordion-group>

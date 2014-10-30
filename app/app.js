@@ -6,8 +6,12 @@ angular.module('myApp', [
     'myApp.who-what',
     'myApp.view2',
     'myApp.version',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'restangular'
 ]).
-    config(['$routeProvider', function ($routeProvider) {
+    config(['$routeProvider', 'RestangularProvider', function ($routeProvider, RestangularProvider) {
         $routeProvider.otherwise({redirectTo: '/who-what'});
+
+        RestangularProvider.setBaseUrl('http://localhost:8001');
+
     }]);
