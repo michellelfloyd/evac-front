@@ -7,7 +7,7 @@ angular.module('myApp', [
   'myApp.view1',
   'myApp.route-planner',
   'myApp.version',
-  'ui.bootstrap'
+  'ui.bootstrap',
     'ngRoute',
     'myApp.who-what',
     'myApp.people',
