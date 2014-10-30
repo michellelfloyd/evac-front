@@ -33,3 +33,25 @@
     height: 400px;
     width: 400px;
 }
+
+#map-canvas {
+    height: 400px !important;
+    width: 60% !important;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+ #panel {
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+ }
+
+ #directionsPanel {
+     height: 400px;
+     width: 20%;
+     display: inline-block;
+     overflow: scroll;
+ }
