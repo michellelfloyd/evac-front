@@ -65,7 +65,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
             $scope.directionsDisplay.setMap($scope.map);
             $scope.directionsDisplay.setPanel(document.getElementById("directionsPanel"));
             $scope.maps.event.addListener($scope.directionsDisplay, 'directions_changed', function() {
-                computeTotalDistance(directionsDisplay.directions);
+                $scope.computeTotalDistance($scope.directionsDisplay.getDirections());
             });
 
             $scope.calcRoute()
@@ -88,43 +88,17 @@ angular.module('myApp.route-planner', ['ngRoute'])
             $scope.maps.event.trigger($scope.map, 'resize');
         };
 
+        $scope.computeTotalDistance = function (result) {
+            var total = 0;
+            var myroute =result.routes[0];
+            for (var i = 0; i < myroute.legs.length; i++) {
+                total += myroute.legs[i].distance.value;
+            }
+            total = total / 1000.0
+            document.getElementById('total').innerHTML = total + 'km';
+        }
 
-//    GoogleMapApi.then(function (maps) {
-//      console.log(maps);
-//
-//      directionsDisplay = new maps.DirectionsRenderer();
-//      var chicago = new google.maps.LatLng(41.850033, -87.6500523);
-//      var mapOptions = {
-//        center: new maps.LatLng(20.68177501, -103.3514794),
-//        zoom: 15,
-//        mapTypeId: maps.MapTypeId.ROADMAP
-//      };
-//      var map = new maps.Map(document.getElementById("map-canvas"), mapOptions);
-//
-//      directionsDisplay.setMap(map);
-//
-//      directionsDisplay.setPanel(document.getElementById("directionsPanel"));
-//
-//      var directionsService = new maps.DirectionsService();
-//
-//      var directionsDisplay = new maps.DirectionsRenderer();
-//
-//      var request = {
-//        origin: 'orem, ut',
-//        destination: 'payson, ut',
-//        travelMode: maps.TravelMode.DRIVING
-//      };
-//
-//      directionsService.route(request, function(response, status) {
-//        if (status == google.maps.DirectionsStatus.OK) {
-//          directionsDisplay.setDirections(response);
-//        }
-//
-//
-//      });
-//
-//
-//    });
+
 
 
     }]);
