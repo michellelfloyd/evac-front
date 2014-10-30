@@ -12,6 +12,8 @@ angular.module('myApp.who-what', ['ngRoute'])
     .controller('WhoWhatCtrl', ['$scope', function ($scope) {
 
         $scope.oneAtATime = true;
+        $scope.panel1 = false;
+        $scope.panel2 = false;
 
         $scope.addItem = function () {
             var newItemNo = $scope.items.length + 1;
