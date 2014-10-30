@@ -11,18 +11,10 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
   .controller('RoutePlannerCtrl', ['$scope', 'GoogleMapApi'.ns(), function ($scope, GoogleMapApi) {
 
-//    $scope.map = {
-//      center: {
-//        latitude: 45,
-//        longitude: -73
-//      },
-//      zoom: 8
-//    };
-
     $scope.locations = [
       'orem, ut',
       'payson, ut'
-    ]
+    ];
 
     GoogleMapApi.then(function (maps) {
       $scope.maps = maps;
@@ -53,6 +45,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
       $scope.directionsService.route(request, function (response, status) {
         if (status == $scope.maps.DirectionsStatus.OK) {
           $scope.directionsDisplay.setDirections(response);
+          $scope.directionsDisplay.setPanel(document.getElementById("directionsPanel"));
         }
       });
     };

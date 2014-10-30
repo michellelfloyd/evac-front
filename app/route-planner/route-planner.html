@@ -1,3 +1,21 @@
+<style>
+    html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+    }
+    #panel {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: -180px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+    }
+</style>
+
 <div id="panel">
     <b>Start: </b>
     <select ng-model="start" ng-options="location for location in locations">
@@ -5,7 +23,8 @@
     <b>End: </b>
     <select ng-model="end" ng-options="location for location in locations" ng-change="calcRoute()">
     </select>
-</div>
-<div id="map-canvas"></div>
+
+<div id="map-canvas" style="float:left;width:70%; height:100%"></div>
+<div id="directionsPanel" style="float:right;width:30%;height 100%"></div>
 
 <!--<ui-gmap-google-map center="map.center" zoom="map.zoom"></ui-gmap-google-map>-->
