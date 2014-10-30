@@ -47,8 +47,9 @@ div.panel-heading:hover {
 
 a.accordion-toggle {
     text-decoration: none !important;
+    cursor: pointer;
 }
 
 a.accordion-toggle:hover {
-
+    cursor: hand;
 }
