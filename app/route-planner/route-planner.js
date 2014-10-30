@@ -16,6 +16,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
             'payson, ut'
         ];
 
+
         GoogleMapApi.then(function (maps) {
             $scope.maps = maps;
             console.log(maps);
@@ -23,6 +24,10 @@ angular.module('myApp.route-planner', ['ngRoute'])
         });
 
         $scope.initialize = function () {
+
+        $scope.travelMode = $scope.maps.TravelMode.DRIVING
+        $scope.start = "new york"
+        $scope.end = "new york"
             $scope.rendererOptions = {
                 draggable: true
             };
@@ -58,12 +63,12 @@ angular.module('myApp.route-planner', ['ngRoute'])
             $scope.map = new $scope.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
             $scope.directionsDisplay.setMap($scope.map);
-            $scope.directionsDisplay.setPanel(document.getElementByID("directionsPanel"));
-            $scope.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
+            $scope.directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+            $scope.maps.event.addListener($scope.directionsDisplay, 'directions_changed', function() {
                 computeTotalDistance(directionsDisplay.directions);
             });
 
-            calcRoute()
+            $scope.calcRoute()
         };
 
         $scope.calcRoute = function () {
