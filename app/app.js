@@ -4,7 +4,12 @@
 angular.module('myApp', [
     'ngRoute',
     'myApp.who-what',
-    'myApp.view2',
+    'myApp.people',
+    'myApp.pets',
+    'myApp.documents',
+    'myApp.valuables',
+    'myApp.travelTools',
+    'myApp.emergency',
     'myApp.version',
     'ui.bootstrap',
     'restangular'

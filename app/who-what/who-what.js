@@ -11,6 +11,8 @@ angular.module('myApp.who-what', ['ngRoute'])
 
   .controller('WhoWhatCtrl', ['$scope', 'Restangular', function ($scope, Restangular) {
 
+       
+        
     Restangular.all('people/').getList().then(function (people) {
       $scope.people = people;
 
@@ -22,7 +24,10 @@ angular.module('myApp.who-what', ['ngRoute'])
         });
 
 //        $scope.oneAtATime = true;
-//
+//        $scope.panel1 = false;
+//        $scope.panel2 = false;
+//        
+// 
 //        $scope.addItem = function () {
 //            var newItemNo = $scope.items.length + 1;
 //            $scope.items.push('Item ' + newItemNo);
@@ -33,4 +38,4 @@ angular.module('myApp.who-what', ['ngRoute'])
       isFirstDisabled: false
     };
 
-  }]);
+ }]);
