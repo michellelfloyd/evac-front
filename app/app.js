@@ -4,7 +4,6 @@
 angular.module('myApp', [
   'ngRoute',
   'google-maps'.ns(),
-  'myApp.view1',
   'myApp.route-planner',
   'myApp.version',
   'ui.bootstrap',
