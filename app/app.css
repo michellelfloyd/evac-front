@@ -52,3 +52,15 @@ a.accordion-toggle {
 a.accordion-toggle:hover {
 
 }
+
+.destination-panel-border{
+    border-style: solid;
+    border-width: 5px;
+    padding:150px;
+    margin: 10px;
+    text-align: center;
+    height:350px;
+    font-weight: bold;
+
+}
+

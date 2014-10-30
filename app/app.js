@@ -6,7 +6,8 @@ angular.module('myApp', [
     'myApp.who-what',
     'myApp.view2',
     'myApp.version',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'myApp.destination'
 ]).
     config(['$routeProvider', function ($routeProvider) {
         $routeProvider.otherwise({redirectTo: '/who-what'});
