@@ -9,7 +9,7 @@ angular.module('myApp.destination', ['ngRoute'])
   });
 }])
 
-.controller('destinationCtrl', ['$scope', function($scope) {
+.controller('DestinationCtrl', ['$scope', function($scope) {
 
     }])
 
