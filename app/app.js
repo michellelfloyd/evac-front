@@ -19,7 +19,7 @@ angular.module('myApp', [
         'myApp.travelTools',
         'myApp.emergency'
     ]).
-    config(['$routeProvider', 'GoogleMapApiProvider'.ns(), function ($routeProvider, GoogleMapApi) {
+    config(['$routeProvider', 'GoogleMapApiProvider'.ns(), 'RestangularProvider', function ($routeProvider, GoogleMapApi, RestangularProvider) {
         $routeProvider.otherwise({redirectTo: '/view1'});
 
         GoogleMapApi.configure({
@@ -27,4 +27,6 @@ angular.module('myApp', [
             v: '3.17',
             libraries: 'weather,geometry,visualization'
         });
+
+        RestangularProvider.setBaseUrl('http://localhost:8001');
     }]);
