@@ -1,0 +1,21 @@
+<div id="panel">
+    <b>Mode of Travel: </b>
+    <select ng-model="travelMode" ng-options="mode.value as mode.name for mode in travelModes" ng-change="calcRoute()">
+
+    </select>
+</div>
+
+<div id="panel">
+    <b>Start: </b>
+    <select ng-model="start" ng-options="location for location in locations">
+    </select>
+    <b>End: </b>
+    <select ng-model="end" ng-options="location for location in locations" ng-change="calcRoute()">
+    </select>
+</div>
+
+<div style="text-align: center">
+    <div id="map-canvas"></div>
+    <div id="directionsPanel"></div>
+    <p>Total Distance: <span id="total"></span></p>
+</div>

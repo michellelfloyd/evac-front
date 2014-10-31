@@ -26,16 +26,16 @@ describe('my app', function() {
   });
 
 
-  describe('view2', function() {
+  describe('route-planner', function() {
 
     beforeEach(function() {
-      browser.get('index.html#/view2');
+      browser.get('index.html#/route-planner');
     });
 
 
-    it('should render view2 when user navigates to /view2', function() {
+    it('should render route-planner when user navigates to /route-planner', function() {
       expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for view 2/);
+        toMatch(/partial for route-planner/);
     });
 
   });

@@ -2,8 +2,7 @@
 <!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,13 +24,14 @@
     <li><a href="#/valuables">Technology & Valuables</a></li>
     <li><a href="#/travelTools">Travel Tools</a></li>
     <li><a href="#/emergency">Emergency Supplies</a></li>
+    <li><a href="#/route-planner">Route Planner</a></li>
 </ul>
 
-<!--[if lt IE 7]>
+  <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-<div ng-view></div>
+  <div ng-view></div>
 
 <div>
     <p class="text-center copyright text-muted small" >Copyright &copy; Coding Campus 2014</p>
@@ -43,6 +43,16 @@
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
+<script src="components/version/version.js"></script>
+<script src="components/version/version-directive.js"></script>
+<script src="components/version/interpolate-filter.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/lodash/dist/lodash.js"></script>
+<script src="bower_components/bluebird/js/browser/bluebird.js"></script>
+<script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+
 <script src="app.js"></script>
 <script src="who-what/who-what.js"></script>
 <script src="people/people.js"></script>
@@ -51,6 +61,7 @@
 <script src="valuables/valuables.js"></script>
 <script src="travelTools/travelTools.js"></script>
 <script src="emergency/emergency.js"></script>
+<<<<<<< HEAD
 <script src="view2/view2.js"></script>
 <script src="components/version/version.js"></script>
 <script src="components/version/version-directive.js"></script>
@@ -61,6 +72,9 @@
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/lodash/dist/lodash.js"></script>
 <script src="bower_components/restangular/dist/restangular.js"></script>
+=======
+<script src="route-planner/route-planner.js"></script>
+>>>>>>> b9948731962113df6b732c27c9b78eacff7050ae
 
 </body>
 </html>
