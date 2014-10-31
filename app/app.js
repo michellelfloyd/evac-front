@@ -7,6 +7,7 @@ angular.module('myApp', [
         'myApp.route-planner',
         'myApp.version',
         'ui.bootstrap',
+        'restangular',
         'myApp.who-what',
         'myApp.version',
         'myApp.destination',
