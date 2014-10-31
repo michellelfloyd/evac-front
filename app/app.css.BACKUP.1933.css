@@ -190,6 +190,7 @@ a.accordion-toggle:hover {
     padding: 0 !important;
     text-align: center;
     height:350px;
+<<<<<<< HEAD
     font-weight: bold;
 }
 
@@ -250,25 +251,27 @@ a.accordion-toggle:hover {
 .rotate {
 
 /* Safari */
-    -webkit-transform: rotate(-90deg) !important;
+-webkit-transform: rotate(-90deg) !important;
 
-    /* Firefox */
-    -moz-transform: rotate(-90deg) !important;
+/* Firefox */
+-moz-transform: rotate(-90deg) !important;
 
-    /* IE */
-    -ms-transform: rotate(-90deg) !important;
+/* IE */
+-ms-transform: rotate(-90deg) !important;
 
-    /* Opera */
-    -o-transform: rotate(-90deg) !important;
+/* Opera */
+-o-transform: rotate(-90deg) !important;
 
-    /* Internet Explorer */
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3) !important;
-border-radius: 7px;
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3) !important;
+=======
+    border-radius: 7px;
 }
 
 .destination-panel-border span {
     margin-right: 8%;
 }
+>>>>>>> added header to desination page and styling
 
 .destination-header {
     background-color: lightgray;

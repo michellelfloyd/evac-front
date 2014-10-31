@@ -185,9 +185,9 @@ a.accordion-toggle:hover {
 
 .destination-panel-border{
     border-style: solid;
-    border-width: 2px;
+    border-width: 5px;
+    padding:150px;
     margin: 10px;
-    padding: 0 !important;
     text-align: center;
     height:350px;
     font-weight: bold;
@@ -250,33 +250,19 @@ a.accordion-toggle:hover {
 .rotate {
 
 /* Safari */
-    -webkit-transform: rotate(-90deg) !important;
+-webkit-transform: rotate(-90deg) !important;
 
-    /* Firefox */
-    -moz-transform: rotate(-90deg) !important;
+/* Firefox */
+-moz-transform: rotate(-90deg) !important;
 
-    /* IE */
-    -ms-transform: rotate(-90deg) !important;
+/* IE */
+-ms-transform: rotate(-90deg) !important;
 
-    /* Opera */
-    -o-transform: rotate(-90deg) !important;
+/* Opera */
+-o-transform: rotate(-90deg) !important;
 
-    /* Internet Explorer */
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3) !important;
-border-radius: 7px;
-}
-
-.destination-panel-border span {
-    margin-right: 8%;
-}
-
-.destination-header {
-    background-color: lightgray;
-    border-radius: 7px 7px 0 0;
-}
-
-.destination-header h5 {
-    margin-top: 0;
-    padding: 22px 0;
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3) !important;
 
 }
+

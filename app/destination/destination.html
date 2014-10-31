@@ -1,13 +1,22 @@
 <div class="row">
-    <div class="col-lg-3 col-lg-offset-1 destination-panel-border">
-        <div style="margin-top: -130px;">Close Range (15-75 miles)</div>
+    <div class="col-sm-3 col-sm-offset-1 destination-panel-border">
+        <div class="destination-header">
+            <h5><span class="glyphicon glyphicon-arrow-down"></span>Close Range (15-75 miles)</h5>
+        </div>
     </div>
-    <div class="col-lg-3 destination-panel-border">
-        <div style="margin-top: -130px;">Mid Range (76-200 miles)</div>
+    <div class="col-sm-3 destination-panel-border">
+        <div class="destination-header">
+            <h5><span class="glyphicon glyphicon-arrow-down"></span>Mid Range (76-200 miles)</h5>
+        </div>
     </div>
-    <div class="col-lg-3 destination-panel-border">
-        <div style="margin-top: -130px;">Long Range (201-1000+ miles)</div>
+    <div class="col-sm-3 destination-panel-border">
+        <div class="destination-header">
+            <h5><span class="glyphicon glyphicon-arrow-down"></span>Long Range (201-1000+ miles)</h5>
+        </div>
 
+        <button type="button" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-home"></span>
+        </button>
     </div>
    <label ng-repeat="route in route" heading="{{route.destinations}}">
         <div ng-repeat="stop in route.destinations">
