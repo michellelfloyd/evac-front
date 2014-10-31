@@ -8,6 +8,10 @@ angular.module('myApp', [
   'myApp.version',
   'ui.bootstrap',
     'myApp.who-what',
+    'myApp.view2',
+    'myApp.version',
+    'ui.bootstrap',
+    'myApp.destination'
     'myApp.people',
     'myApp.pets',
     'myApp.documents',
