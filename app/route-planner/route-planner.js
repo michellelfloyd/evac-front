@@ -13,8 +13,18 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
         $scope.locations = [
             'orem, ut',
-            'payson, ut'
+            'payson, ut',
+            'springville, ut'
         ];
+
+        $scope.waypoints = [
+
+        ];
+
+        $scope.addWaypoint = function(location) {
+            var locationObject = {location: location}
+            $scope.waypoints.push(locationObject)
+        }
 
 
         GoogleMapApi.then(function (maps) {
@@ -76,6 +86,8 @@ angular.module('myApp.route-planner', ['ngRoute'])
                 origin: $scope.start,
                 destination: $scope.end,
 //                travelMode: $scope.maps.TravelMode.DRIVING
+                waypoints: $scope.waypoints,
+                optimizeWaypoints: true,
                 travelMode: $scope.travelMode
             };
             $scope.directionsService.route(request, function (response, status) {
