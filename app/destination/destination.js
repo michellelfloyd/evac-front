@@ -9,7 +9,12 @@ angular.module('myApp.destination', ['ngRoute'])
   });
 }])
 
-.controller('DestinationCtrl', ['$scope', function($scope) {
+.controller('DestinationCtrl', ['$scope', 'Restangular', function($scope, Restangular) {
 
-    }])
+
+     Restangular.all('route/').getList().then(function(route) {
+      $scope.route = route;
+
+    });
+}]);
 
