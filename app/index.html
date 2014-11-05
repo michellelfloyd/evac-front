@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>
-<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Evac-Plan App</title>
+    <title>Evac Plan</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon"
+        href="https://cdn4.iconfinder.com/data/icons/aiga-symbol-signs/612/aiga_first_aid_bg-512.png">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
     <link rel="stylesheet" href="app.css">
@@ -20,6 +18,7 @@
     <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
+
 <div style="border-bottom: solid 2px blue;">
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="font-size: 1em; margin-right: 100px">
@@ -32,6 +31,7 @@
             <li><a href="#/travelTools">Travel Tools</a></li>
             <li><a href="#/emergency">Emergency Supplies</a></li>
             <li><a href="#/route-planner">Route Planner</a></li>
+            <li><a href="#/destination">Destinations</a></li>
         </ul>
     </div>
 </div>
@@ -59,7 +59,9 @@
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="destination/destination.js"></script>
 <script src="bower_components/lodash/dist/lodash.js"></script>
+<script src="bower_components/restangular/dist/restangular.js"></script>
 <script src="bower_components/bluebird/js/browser/bluebird.js"></script>
 <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
 
@@ -71,7 +73,6 @@
 <script src="valuables/valuables.js"></script>
 <script src="travelTools/travelTools.js"></script>
 <script src="emergency/emergency.js"></script>
-
 <script src="route-planner/route-planner.js"></script>
 <script src="components/version/version.js"></script>
 <script src="components/version/version-directive.js"></script>
