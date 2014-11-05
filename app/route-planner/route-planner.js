@@ -13,8 +13,26 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
         $scope.locations = [
             'orem, ut',
-            'payson, ut'
+            'payson, ut',
+            'springville, ut'
         ];
+
+        $scope.waypoints = []
+
+        $scope.input = document.getElementById('searchTextField');
+        $scope.autoComplete = new google.maps.places.Autocomplete(input);
+
+        google.maps.event.addListener($scope.autoComplete, 'place_changed', function() {
+            var place = $scope.autoComplete.getPlace();
+            $scope.selected = place.formatted_address;
+    });
+
+        $scope.addWaypoint = function () {
+
+            var locationObject = {location: $scope.selected}
+            $scope.waypoints.push(locationObject)
+            $scope.calcRoute()
+        }
 
 
         GoogleMapApi.then(function (maps) {
@@ -25,13 +43,14 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
         $scope.initialize = function () {
 
-        $scope.travelMode = $scope.maps.TravelMode.DRIVING
-        $scope.start = "new york"
-        $scope.end = "new york"
+            $scope.travelMode = $scope.maps.TravelMode.DRIVING
+            $scope.start = "new york"
+            $scope.end = "new york"
             $scope.rendererOptions = {
                 draggable: true
             };
-            $scope.directionsDisplay = new $scope.maps.DirectionsRenderer($scope.rendererOptions);;
+            $scope.directionsDisplay = new $scope.maps.DirectionsRenderer($scope.rendererOptions);
+            ;
             $scope.directionsService = new $scope.maps.DirectionsService();
             $scope.map;
             $scope.travelModes = [
@@ -64,7 +83,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
             $scope.directionsDisplay.setMap($scope.map);
             $scope.directionsDisplay.setPanel(document.getElementById("directionsPanel"));
-            $scope.maps.event.addListener($scope.directionsDisplay, 'directions_changed', function() {
+            $scope.maps.event.addListener($scope.directionsDisplay, 'directions_changed', function () {
                 $scope.computeTotalDistance($scope.directionsDisplay.getDirections());
             });
 
@@ -76,6 +95,8 @@ angular.module('myApp.route-planner', ['ngRoute'])
                 origin: $scope.start,
                 destination: $scope.end,
 //                travelMode: $scope.maps.TravelMode.DRIVING
+                waypoints: $scope.waypoints,
+                optimizeWaypoints: true,
                 travelMode: $scope.travelMode
             };
             $scope.directionsService.route(request, function (response, status) {
@@ -90,15 +111,13 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
         $scope.computeTotalDistance = function (result) {
             var total = 0;
-            var myroute =result.routes[0];
+            var myroute = result.routes[0];
             for (var i = 0; i < myroute.legs.length; i++) {
                 total += myroute.legs[i].distance.value;
             }
             total = total / 1000.0
             document.getElementById('total').innerHTML = total + 'km';
         }
-
-
 
 
     }]);
