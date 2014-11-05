@@ -18,26 +18,33 @@
     <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
-<ul class="menu">
-    <li><a href="#/who-what">Who What</a></li>
-    <li><a href="#/people">People</a></li>
-    <li><a href="#/pets">Pets & Supplies</a></li>
-    <li><a href="#/documents">Important Documents</a></li>
-    <li><a href="#/valuables">Technology & Valuables</a></li>
-    <li><a href="#/travelTools">Travel Tools</a></li>
-    <li><a href="#/emergency">Emergency Supplies</a></li>
-    <li><a href="#/route-planner">Route Planner</a></li>
-    <li><a href="#/destination">Destinations</a></li>
-</ul>
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
+<div style="border-bottom: solid 2px blue;">
 
-  <div ng-view></div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="font-size: 1em; margin-right: 100px">
+        <a class="navbar-brand" href="index.html" style="margin-left:230px; margin-top: 0px; margin-bottom: 0px; font-size: 3em; font-weight: bold; color: red;">Emeriprep</a>
+        <ul class="nav navbar-nav navbar-right" style="margin-right:130px; margin-top: 20px;">
+            <li><a href="#/people">People</a></li>
+            <li><a href="#/pets">Pets & Supplies</a></li>
+            <li><a href="#/documents">Important Documents</a></li>
+            <li><a href="#/valuables">Technology & Valuables</a></li>
+            <li><a href="#/travelTools">Travel Tools</a></li>
+            <li><a href="#/emergency">Emergency Supplies</a></li>
+            <li><a href="#/route-planner">Route Planner</a></li>
+            <li><a href="#/destination">Destinations</a></li>
+        </ul>
+    </div>
+</div>
+
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div ng-view></div>
 
 <div>
-    <p class="text-center copyright text-muted small" >Copyright &copy; Coding Campus 2014</p>
+    <p class="text-center copyright text-muted small">Copyright &copy; Coding Campus 2014</p>
 </div>
 
 <!-- In production use:
@@ -76,6 +83,9 @@
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/lodash/dist/lodash.js"></script>
 <script src="bower_components/restangular/dist/restangular.js"></script>
+
+<script src="route-planner/route-planner.js"></script>
+
 
 </body>
 </html>
