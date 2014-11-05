@@ -1,6 +1,24 @@
-<div>
-    <div class="col-4">This is my box</div>
-    <div class="col-4">This is my box</div>
-    <div class="col-4">This is my box</div>
+<div class="row">
+    <div class="col-lg-3 col-lg-offset-1 destination-panel-border">
+        <div style="margin-top: -130px;">Close Range (15-75 miles)</div>
+    </div>
+    <div class="col-lg-3 destination-panel-border">
+        <div style="margin-top: -130px;">Mid Range (76-200 miles)</div>
+    </div>
+    <div class="col-lg-3 destination-panel-border">
+        <div style="margin-top: -130px;">Long Range (201-1000+ miles)</div>
+
+    </div>
+   <label ng-repeat="route in route" heading="{{route.destinations}}">
+        <div ng-repeat="stop in route.destinations">
+            <ul>
+                <li>{{stop.name}}</li>
+                <li>{{stop.address}}</li>
+                <li>{{stop.phone}}</li>
+                <li>{{stop.type}}</li>
+            </ul>
+        </div>
+   </label>
+
 </div>
 
