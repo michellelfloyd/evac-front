@@ -108,17 +108,37 @@ a.accordion-toggle:hover {
 .navbar-nav > li > a {
     padding-top: 5px !important;
     padding-bottom: 5px !important;
-    color: blue !important;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    color: #0036FF !important;
+    font-family: 'Comfortaa', cursive;
+    border-top: solid 1px #0036FF;
+    border-bottom: solid 1px #0036FF;
+    background-color: white;
+    margin-bottom: 15px;
+
 }
 
 .navbar-nav > li > a:hover {
-    background-color: blue !important;
-    color: white !important;
-    font-size: 1.15em;
-    font-weight: bold;
-    padding-top: 25px !important;
-    padding-bottom: 5px !important;
-    margin-top: -20px !important;
+    /*background-color: blue !important;*/
+    color: #ffffff !important;
+    /*font-size: 1.15em;*/
+    background-color: #0036FF;
+}
+
+.nav-back {
+    min-height: 55px;
+    margin-bottom: 30px;
+    background-image: url('img/small_steps.png');
+    border-bottom: solid 4px #0036FF;
+    margin-bottom: 0px;
+}
+
+.nav-outbord {
+    border-bottom: solid 4px #FF0600;
+}
+
+.navbar-brand:hover {
+    color: #FF0600 !important;
+    font-size: 3.25em !important;
 }
