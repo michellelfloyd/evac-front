@@ -8,11 +8,25 @@
 
 <div id="panel">
     <b>Start: </b>
-    <select ng-model="start" ng-options="location for location in locations">
+    <select ng-model="start" ng-options="location for location in locations" ng-change="calcRoute()">
     </select>
-    <b>End: </b>
-    <select ng-model="end" ng-options="location for location in locations" ng-change="calcRoute()">
-    </select>
+
+    <h4>Waypoints:</h4>
+    <!--<pre>Model: {{selected | json}}</pre>-->
+    <input ng-model="selected" id="input" class="controls" type="text">
+    <button ng-click="addWaypoint()">Add</button>
+    <ul>
+        <li ng-repeat="waypoint in waypoints track by waypoint.location">{{waypoint.location}}
+
+            <i ng-click="deleteWaypoint(waypoint)" class="fa fa-close"></i>
+
+        </li>
+    </ul>
+    <div>
+        <b>End: </b>
+        <select ng-model="end" ng-options="location for location in locations" ng-change="calcRoute()">
+        </select>
+    </div>
 </div>
 
 <div style="text-align: center">
