@@ -66,11 +66,43 @@ angular.module('myApp.route-planner', ['ngRoute'])
             controlUI.appendChild(controlText);
 
             $scope.maps.event.addDomListener(controlUI, 'click', function () {
-                var chicago = new $scope.maps.LatLng(41.850033, -87.6500523)
-                map.setCenter(chicago);
+                var infowindow;
+                var newYork = new $scope.maps.LatLng(40.69847032728747, -73.9514422416687);
+                var request = {
+
+                    location: newYork,
+                    radius: 500,
+                    types: ['bank']
+                };
+                $scope.infowindow = new $scope.maps.InfoWindow();
+                var service = new $scope.maps.places.PlacesService($scope.map);
+                service.nearbySearch(request, $scope.callback);
+
             });
 
+            $scope.callback = function (results, status) {
+                if (status == $scope.maps.places.PlacesServiceStatus.OK) {
+                    for (var i = 0; i < results.length; i++) {
+                        $scope.createMarker(results[i]);
+                    }
+                }
+            }
+
+            $scope.createMarker = function (place) {
+                var placeLoc = place.geometry.location;
+                var marker = new $scope.maps.Marker({
+                    map: $scope.map,
+                    position: place.geometry.location
+                })
+
+                $scope.maps.event.addListener(marker, 'click', function () {
+                    $scope.infowindow.setContent(place.name);
+                    $scope.infowindow.open($scope.map, this);
+                });
+            }
+
         };
+
 
         GoogleMapApi.then(function (maps) {
             $scope.maps = maps;
@@ -79,7 +111,6 @@ angular.module('myApp.route-planner', ['ngRoute'])
         });
 
         $scope.initialize = function () {
-
 
 
             $scope.travelMode = $scope.maps.TravelMode.DRIVING;
