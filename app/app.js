@@ -16,7 +16,8 @@ angular.module('myApp', [
         'myApp.documents',
         'myApp.valuables',
         'myApp.travelTools',
-        'myApp.emergency'
+        'myApp.emergency',
+        'myApp.add-person'
     ]).
     config(['$routeProvider', 'GoogleMapApiProvider'.ns(), 'RestangularProvider', function ($routeProvider, GoogleMapApi, RestangularProvider) {
         $routeProvider.when('/who-what', {
