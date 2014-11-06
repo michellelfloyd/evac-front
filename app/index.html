@@ -33,18 +33,23 @@
                  style="font-size: 1em; margin-right: 100px">
                 <a class="navbar-brand" href="index.html" style="margin-left:230px; margin-top: 5px; margin-bottom: 0px;
         font-size: 3em; font-weight: bold; color: orangered; font-family: 'Lobster', cursive;"><span
-                        style="color: #464341" class="emeri">Emeri</span><span class="prep" style="font-family: 'Lobster', cursive;">PREP</span></a>
+                        style="color: #616161" class="emeri">Emeri</span><span class="prep">PREP</span></a>
                 <ul class="nav navbar-nav navbar-right" style="margin-right:130px; margin-top: 20px;">
-                    <li><a href="#/people"
-                           style="border-bottom-left-radius: 20px; border-top-left-radius: 20px;">People</a>
-                    </li>
+                    <li><a href="#/people" style="border-bottom-left-radius: 20px; border-top-left-radius: 20px; padding-left: 14px;" class="nav-elem">People</a></li>
+                    <li class="nav-sep">|</li>
                     <li><a href="#/pets">Pets & Supplies</a></li>
+                    <li class="nav-sep">|</li>
                     <li><a href="#/documents">Important Documents</a></li>
+                    <li class="nav-sep">|</li>
                     <li><a href="#/valuables">Technology & Valuables</a></li>
+                    <li class="nav-sep">|</li>
                     <li><a href="#/travelTools">Travel Tools</a></li>
+                    <li class="nav-sep">|</li>
                     <li><a href="#/emergency">Emergency Supplies</a></li>
+                    <li class="nav-sep">|</li>
                     <li><a href="#/route-planner">Route Planner</a></li>
-                    <li><a href="#/destination" style="border-bottom-right-radius: 20px; border-top-right-radius: 20px;">Destinations</a></li>
+                    <li class="nav-sep">|</li>
+                    <li><a href="#/destination" style="border-bottom-right-radius: 20px; border-top-right-radius: 20px; padding-right: 14px;">Destinations</a></li>
                 </ul>
             </div>
         </div>
@@ -55,8 +60,10 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
-
-<div ng-view></div>
+<div style="min-height: 800px;">
+    <div class="over-buff"></div>
+    <div ng-view></div>
+</div>
 
 <div>
     <p class="text-center copyright text-muted small">Copyright &copy; Coding Campus 2014</p>
