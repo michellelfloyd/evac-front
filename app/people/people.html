@@ -1,8 +1,10 @@
 <div class="container">
 
-    <h2>Who will go with you?</h2>
+    <h2 class="who-what-title">Who will go with you?</h2>
 
-    <tabset justified="true">
+    <div class="tab-out-con">
+        <div class="tab-in-con">
+            <tabset justified="true">
         <tab ng-repeat="person in people" heading="{{person.name}}">
             Gender: {{person.gender}}
             <br>
@@ -24,6 +26,9 @@
         <!--<tab heading="Person 5">Person 5 content</tab>-->
         <!--<tab heading="Person 6">Person 6 content</tab>-->
     </tabset>
+        </div>
+    </div>
+    
 
     <p class="">
         <a href="#/pets"><button class="btn btn-large btn-success" type="button">Next</button></a>
