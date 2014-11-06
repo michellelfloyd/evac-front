@@ -34,6 +34,14 @@ angular.module('myApp.route-planner', ['ngRoute'])
             $scope.calcRoute()
         }
 
+        $scope.deleteWaypoint = function (waypoint) {
+
+            var index = $scope.waypoints.indexOf(waypoint)
+            if (index > -1) {
+                $scope.waypoints.splice(index, 1);
+                $scope.calcRoute()
+            }
+        }
 
         GoogleMapApi.then(function (maps) {
             $scope.maps = maps;

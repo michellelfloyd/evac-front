@@ -16,7 +16,11 @@
     <input ng-model="selected" id="input" class="controls" type="text">
     <button ng-click="addWaypoint()">Add</button>
     <ul>
-        <li ng-repeat="waypoint in waypoints track by waypoint.location">{{waypoint.location}} <a><i class="fa fa-close"></i></a></li>
+        <li ng-repeat="waypoint in waypoints track by waypoint.location">{{waypoint.location}}
+
+            <i ng-click="deleteWaypoint(waypoint)" class="fa fa-close"></i>
+
+        </li>
     </ul>
     <div>
         <b>End: </b>
