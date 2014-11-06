@@ -148,7 +148,7 @@ a.accordion-toggle:hover {
 
 .nav-back {
     min-height: 55px;
-    background-image: url('img/small_steps.png');
+    background-image: url('img/strange_bullseyes.png');
     border-bottom: solid 16px orangered;
     margin-bottom: 0px;
     padding-top: 10px;
@@ -204,7 +204,8 @@ a.accordion-toggle:hover {
 }
 
 .tab-in-con {
-    background-color:rgba(255,255,255,0.6);
+    /*background-color:rgba(255,255,255,0.6);*/
+    background-image: url('img/sos.png');
     min-height: 500px;
     padding: 30px;
     border-radius: 30px;
@@ -215,5 +216,17 @@ a.accordion-toggle:hover {
     border-radius: 33px;
     border: solid orangered 3px;
     margin-bottom: 20px;
+}
+
+.nav-elem-right {
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    padding-right: 14px !important;
+}
+
+.nav-elem-left {
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    padding-left: 14px !important;
 }
 
