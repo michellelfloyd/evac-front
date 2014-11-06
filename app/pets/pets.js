@@ -9,6 +9,11 @@ angular.module('myApp.pets', ['ngRoute'])
   });
 }])
 
-.controller('PetsCtrl', ['$scope', function($scope) {
+.controller('PetsCtrl', ['$scope', 'Restangular', function($scope, Restangular) {
+
+    Restangular.all('pet/').getList().then(function(pet) {
+      $scope.pet = pet;
+
+    });
 
 }]);
