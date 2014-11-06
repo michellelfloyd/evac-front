@@ -114,8 +114,9 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
 
             $scope.travelMode = $scope.maps.TravelMode.DRIVING;
-            $scope.start = "new york";
-            $scope.end = "new york";
+            var newYork = new $scope.maps.LatLng(40.69847032728747, -73.9514422416687);
+            $scope.start = newYork;
+            $scope.end = newYork;
             $scope.rendererOptions = {
                 draggable: true
             };
