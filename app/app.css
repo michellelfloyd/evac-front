@@ -110,10 +110,10 @@ a.accordion-toggle:hover {
     padding-bottom: 5px !important;
     padding-left: 10px !important;
     padding-right: 10px !important;
-    color: #0036FF !important;
+    color: orangered !important;
     font-family: 'Comfortaa', cursive;
-    border-top: solid 1px #0036FF;
-    border-bottom: solid 1px #0036FF;
+    border-top: solid 1px #464341;
+    border-bottom: solid 1px #464341;
     background-color: white;
     margin-bottom: 15px;
 
@@ -121,26 +121,31 @@ a.accordion-toggle:hover {
 
 .navbar-nav > li > a:hover {
     /*background-color: blue !important;*/
-    color: #ffffff !important;
+    color: white !important;
     /*font-size: 1.15em;*/
-    background-color: #0036FF;
+    background-color: orangered;
+    border-top: solid 1px orangered;
+    border-bottom: solid 1px orangered;
 }
 
 .nav-back {
     min-height: 55px;
-    margin-bottom: 30px;
     background-image: url('img/small_steps.png');
-    border-bottom: solid 4px #0036FF;
+    border-bottom: solid 16px orangered;
     margin-bottom: 0px;
+    padding-top: 10px;
 }
 
 .nav-outbord {
-    border-bottom: solid 4px #FF0600;
+    border-bottom: solid 4px #464341;
 }
 
-.navbar-brand:hover {
-    color: #FF0600 !important;
-    font-size: 3.25em !important;
+.navbar-brand:hover .emeri {
+    color: orangered !important;
+}
+
+.navbar-brand:hover .prep {
+    color: #464341 !important;
 }
 
 .destination-panel-border{
