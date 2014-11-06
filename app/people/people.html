@@ -3,12 +3,26 @@
     <h2>Who will go with you?</h2>
 
     <tabset justified="true">
-        <tab heading="Person 1">Person 1 content</tab>
-        <tab heading="Person 2">Person 2 content</tab>
-        <tab heading="Person 3">Person 3 content</tab>
-        <tab heading="Person 4">Person 4 content</tab>
-        <tab heading="Person 5">Person 5 content</tab>
-        <tab heading="Person 6">Person 6 content</tab>
+        <tab ng-repeat="person in people" heading="{{person.name}}">
+            Gender: {{person.gender}}
+            <br>
+            Birthdate: {{person.birthMonth}} {{person.birthYear}}
+            <br>
+            Relationship: {{person.relationship}}
+            <br>
+            Special Conditions: {{person.specialConditions}}
+            <br>
+            <u>Supplies Needed:</u>
+            <div ng-repeat="supply in person.supplies">
+                {{supply.name}}
+            </div>
+        </tab>
+        <!--<tab heading="Person 1">Person 1 content</tab>-->
+        <!--<tab heading="Person 2">Person 2 content</tab>-->
+        <!--<tab heading="Person 3">Person 3 content</tab>-->
+        <!--<tab heading="Person 4">Person 4 content</tab>-->
+        <!--<tab heading="Person 5">Person 5 content</tab>-->
+        <!--<tab heading="Person 6">Person 6 content</tab>-->
     </tabset>
 
     <p class="">
