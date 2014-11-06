@@ -111,6 +111,7 @@ a.accordion-toggle:hover {
     padding-left: 7px;
     padding-right: 7px;
     color: #616161;
+    font-size: .90em;
     font-family: 'Comfortaa', cursive;
     border-top: solid 2px orangered;
     border-bottom: solid 2px orangered;
