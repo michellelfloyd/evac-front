@@ -27,19 +27,19 @@
         <br>
         <div class="row">
             <label>Special Needs</label>
-            <label class="checkbox">
-                <input type="checkbox" ng-model="person.specialConditions">
-                    <p>None</p>
-                <input type="checkbox" ng-model="person.specialConditions">
-                    <p>Vision Needs</p>
-                <input type="checkbox" ng-model="person.specialConditions">
-                    <p>Medical Needs</p>
-                <input type="checkbox" ng-model="person.specialConditions">
-                    <p>Physical Handicap</p>
+            <label class="checkbox" ng-model="person.specialConditions">
+                <input type="checkbox" name="specialConditions">
+                    None<br>
+                <input type="checkbox" name="specialConditions">
+                    Vision Needs<br>
+                <input type="checkbox" name="specialConditions">
+                    Medical Needs<br>
+                <input type="checkbox" name="specialConditions">
+                    Physical Handicap<br>
             </label>
         </div>
     </div>
-
-
-
+    <br>
+     <button class="btn btn-success center-block" ng-click="addPerson()">Save</button>
+    <br>
 </div>
