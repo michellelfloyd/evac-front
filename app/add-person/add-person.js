@@ -9,9 +9,10 @@ angular.module('myApp.add-person', ['ngRoute'])
     });
   }])
 
-  .controller('AddPersonCtrl', ['$scope', function ($scope) {
+  .controller('AddPersonCtrl', ['$scope', 'Restangular', function ($scope, Restangular) {
+
     $scope.person = {gender: null};
-    $scope.genders = ['M', 'F'];
+    $scope.genders = ['Male', 'Female'];
 
     $scope.months = [
       {
@@ -66,7 +67,7 @@ angular.module('myApp.add-person', ['ngRoute'])
     $scope.years = [];
     for (var i = 0; i < 100; i++) {
       $scope.years.push(i);
-    };
+    }
     $scope.malerelative = [
       "Father",
       "Son",
@@ -86,16 +87,18 @@ angular.module('myApp.add-person', ['ngRoute'])
       "Other(please specify)"
     ];
 
-    function pickRelative(gender) {
-      if (gender='M') {
-        $scope.pickRelative = malerelative
+    $scope.genderChange = function() {
+      if ($scope.person.gender == 'Male') {
+        $scope.pickRelatives = $scope.malerelative
       } else {
-        $scope.pickRelative = femalerelative
+        $scope.pickRelatives = $scope.femalerelative
       }
-    }
-    $scope.genderChange = function(){
-      pickRelative = ($scope.person.gender);
-    }
-
+    };
+    $scope.addPerson = function(){
+      Restangular.all('add-person/').customPOST($scope.person).then(function () {
+        alert("Your person was successfully added");
+        }
+      )
+    };
   }]);
 
