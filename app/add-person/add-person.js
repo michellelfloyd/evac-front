@@ -10,10 +10,20 @@ angular.module('myApp.add-person', ['ngRoute'])
   }])
 
   .controller('AddPersonCtrl', ['$scope', function ($scope) {
-    $scope.person = {gender: null};
-    $scope.genders = ['M', 'F'];
+    $scope.person = {gender: null, birthMonth: null};
+    $scope.genders = ['Male', 'Female'];
+    $scope.curYear = parseInt(new Date().getFullYear());
+    $scope.startValidation = false;
+
+    $scope.validateYear = function(){
+        return $scope.person.birthYear > 1900 && $scope.person.birthYear <= $scope.curYear;
+    };
+
 
     $scope.months = [
+      { str: "Month",
+        num: null
+      },
       {
         str: "January",
         num: 1
@@ -64,7 +74,7 @@ angular.module('myApp.add-person', ['ngRoute'])
       }
     ];
     $scope.years = [];
-    for (var i = 0; i < 100; i++) {
+    for (var i = 1900; i < $scope.curYear; i++) {
       $scope.years.push(i);
     };
     $scope.malerelative = [
@@ -74,7 +84,7 @@ angular.module('myApp.add-person', ['ngRoute'])
       "Relative: Other",
       "Legal Guardian",
       "Caretaker",
-      "Other(please specify)"
+      "Other"
     ];
     $scope.femalerelative = [
       "Mother",
@@ -83,18 +93,16 @@ angular.module('myApp.add-person', ['ngRoute'])
       "Relative: Other",
       "Legal Guardian",
       "Caretaker",
-      "Other(please specify)"
+      "Other"
     ];
 
-    function pickRelative(gender) {
-      if (gender='M') {
-        $scope.pickRelative = malerelative
-      } else {
-        $scope.pickRelative = femalerelative
-      }
-    }
+
     $scope.genderChange = function(){
-      pickRelative = ($scope.person.gender);
+       if ($scope.person.gender == 'Male') {
+        $scope.pickRelatives = $scope.malerelative
+      } else {
+        $scope.pickRelatives = $scope.femalerelative
+      }
     }
 
   }]);
