@@ -71,10 +71,10 @@ angular.module('myApp.route-planner', ['ngRoute'])
                 var infowindow;
 
                 var newYork = new $scope.maps.LatLng(40.69847032728747, -73.9514422416687);
-
+                var center = $scope.map.getCenter();
                 var request = {
 
-                    location: newYork,
+                    location: center,
                     radius: 50000,
                     types: ['bank']
                 };
