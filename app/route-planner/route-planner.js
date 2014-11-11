@@ -12,9 +12,9 @@ angular.module('myApp.route-planner', ['ngRoute'])
     .controller('RoutePlannerCtrl', ['$scope', 'GoogleMapApi'.ns(), function ($scope, GoogleMapApi) {
 
         $scope.locations = [
-            'orem, ut',
-            'payson, ut',
-            'springville, ut'
+            "Orem, UT",
+            "Springville, UT",
+            "Payson, UT"
         ];
 
 
@@ -65,13 +65,17 @@ angular.module('myApp.route-planner', ['ngRoute'])
             controlText.innerHTML = '<b>Bank</b>';
             controlUI.appendChild(controlText);
 
+
+
             $scope.maps.event.addDomListener(controlUI, 'click', function () {
                 var infowindow;
+
                 var newYork = new $scope.maps.LatLng(40.69847032728747, -73.9514422416687);
+
                 var request = {
 
                     location: newYork,
-                    radius: 500,
+                    radius: 50000,
                     types: ['bank']
                 };
                 $scope.infowindow = new $scope.maps.InfoWindow();
@@ -86,14 +90,14 @@ angular.module('myApp.route-planner', ['ngRoute'])
                         $scope.createMarker(results[i]);
                     }
                 }
-            }
+            };
 
             $scope.createMarker = function (place) {
                 var placeLoc = place.geometry.location;
                 var marker = new $scope.maps.Marker({
                     map: $scope.map,
                     position: place.geometry.location
-                })
+                });
 
                 $scope.maps.event.addListener(marker, 'click', function () {
                     $scope.infowindow.setContent(place.name);
@@ -122,7 +126,6 @@ angular.module('myApp.route-planner', ['ngRoute'])
             };
             $scope.directionsDisplay = new $scope.maps.DirectionsRenderer($scope.rendererOptions);
             $scope.directionsService = new $scope.maps.DirectionsService();
-
 
             $scope.travelModes = [
                 {
@@ -156,7 +159,18 @@ angular.module('myApp.route-planner', ['ngRoute'])
             $scope.directionsDisplay.setPanel(document.getElementById("directionsPanel"));
             $scope.maps.event.addListener($scope.directionsDisplay, 'directions_changed', function () {
                 $scope.computeTotalDistance($scope.directionsDisplay.getDirections());
+
+
             });
+
+
+
+            $scope.bankControlDiv;
+
+            $scope.bankControlDiv = document.createElement('div');
+            $scope.bankControl = new $scope.BankControl($scope.bankControlDiv, $scope.map);
+            $scope.bankControlDiv.index = 1;
+            $scope.map.controls[$scope.maps.ControlPosition.TOP_RIGHT].push($scope.bankControlDiv);
 
             $scope.calcRoute()
         };
@@ -177,12 +191,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
                 }
             });
 
-            $scope.bankControlDiv;
 
-            $scope.bankControlDiv = document.createElement('div');
-            $scope.bankControl = new $scope.BankControl($scope.bankControlDiv, $scope.map);
-            $scope.bankControlDiv.index = 1;
-            $scope.map.controls[$scope.maps.ControlPosition.TOP_RIGHT].push($scope.bankControlDiv);
 
 
             $scope.maps.event.trigger($scope.map, 'resize');
