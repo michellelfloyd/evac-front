@@ -28,10 +28,16 @@ angular.module('myApp.route-planner', ['ngRoute'])
 //                $scope.selected = place.latLng;
 //            });
 //        }
-        $scope.addWaypoint = function () {
+        $scope.addWaypoint = function (placeString) {
 
-            var locationObject = {location: $scope.selected};
-            $scope.waypoints.push(locationObject);
+            var numString = placeString.replace(/[()]/g,'');
+            var splitLocation = numString.split(",");
+            var floatLat = parseFloat(splitLocation[0]);
+            var floatLong = parseFloat(splitLocation[1]);
+//            var locationObject = $scope.maps.Geocoder(placeString);
+            var locationObject = new $scope.maps.LatLng(floatLat, floatLong);
+            var location = {location: locationObject};
+            $scope.waypoints.push(location);
             $scope.calcRoute();
         };
 
@@ -98,13 +104,16 @@ angular.module('myApp.route-planner', ['ngRoute'])
                     position: place.geometry.location
                 });
 
+
+
+
                 var contentString =
                     place.name +
                     '<div id="content">' +
                     '<div id="siteNotice">' +
                     '</div>' +
                     '<div id="bodyContent">' +
-                    '<button onclick="console.log(\'You clicked\')">Add</button>' +
+                    '<button onclick="$(\'#bodyContent\').scope().addWaypoint(\'' + place.geometry.location + '\'); console.log(\'You clicked\')">Add</button>' +
                     '</div>' +
                     '</div>';
 
