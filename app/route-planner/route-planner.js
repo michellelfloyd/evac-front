@@ -20,6 +20,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
         $scope.waypoints = [];
 
+
 //        $scope.input = document.getElementById('searchTextField');
 //        $scope.autoComplete = new google.maps.places.Autocomplete(input);
 //        var markerHandler = function() {
