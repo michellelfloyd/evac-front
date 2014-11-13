@@ -53,6 +53,8 @@
                     <li class="nav-sep">|</li>
                     <li><a href="#/add-person">Add Person</a></li>
                     <li class="nav-sep">|</li>
+                    <li><a href="#/add-pet">Add Pet</a></li>
+                    <li class="nav-sep">|</li>
                     <li><a href="#/destination" class="nav-elem-right">Destinations</a></li>
                 </ul>
             </div>
@@ -64,8 +66,10 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
-
-<div ng-view></div>
+<div style="min-height: 800px;">
+    <div class="over-buff"></div>
+    <div ng-view></div>
+</div>
 
 <div>
     <p class="text-center copyright text-muted small">Copyright &copy; Coding Campus 2014</p>
@@ -100,6 +104,7 @@
 <script src="emergency/emergency.js"></script>
 <script src="route-planner/route-planner.js"></script>
 <script src="add-person/add-person.js"></script>
+<script src="add-pet/add-pet.js"></script>
 <script src="components/version/version.js"></script>
 <script src="components/version/version-directive.js"></script>
 <script src="components/version/interpolate-filter.js"></script>

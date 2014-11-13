@@ -1,45 +1,98 @@
 <div class="container">
 
     <h2>Add A Person</h2>
+
     <div class="form-group">
         <label>Name</label>
         <input class = "form-control" ng-model="person.name" placeholder="Name">
 
-        <br>
+        <div class="form-group form-horizontal">
+            <div class="input-group pers-margin">
+                <span class="input-group-addon pers-lab">Name</span>
+                <input class="form-control pers-wid" ng-model="person.name" placeholder="Enter Name">
+            </div>
+            <div class="input-group pers-margin">
+                <span class="input-group-addon pers-lab">Gender</span>
+                <select class="form-control" style="width: 100px;" ng-options="gender for gender in genders"
+                        ng-model="person.gender"
+                        ng-change="genderChange()"></select>
+            </div>
+            <div class="input-group pers-margin">
+                <span class="input-group-addon pers-lab">Birthday</span>
 
-            <div>Gender
-                <select ng-options="gender for gender in genders" ng-model="person.gender" ng-change="genderChange()"></select>
-            </div>
-            <br>
-            <label>Birthday</label>
-            <div>Month
-                <select ng-options="month.num as month.str for month in months" ng-model="person.birthMonth"></select>
-            </div>
-            <div>Year
-                <select ng-options="year for year in years" ng-model="person.birthYear"></select>
-            </div>
-        </div>
-        <br>
+                <div>
+                    <select class="form-control pers-wid"
+                            ng-options="month.num as month.str for month in months"
+                            ng-model="person.birthMonth" required>
+                    </select>
 
-        <div>Relationship
-            <select ng-options="pickRelative for pickRelative in pickRelatives" ng-model="person.relationship"></select>
+                    <div>
+                        <div class="input-group">
+                            <input class="form-control" type="number" placeholder="Year"
+                                   style="width: 100px;"
+                                   ng-model="person.birthYear"
+                                   ng-focus="startValidation=true" ng-blur="startValidation=false"
+                                   required>
+
+                            <div style="font-size: .85em; padding:5px; margin: 0px;"
+                                 class="alert alert-danger input-group-addon"
+                                 ng-hide="validateYear() || !startValidation">
+                                Enter a year between 1900 and {{curYear}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="font-size: .85em; padding:5px; margin: 0px;"
+                 class="alert alert-danger" ng-hide="validateYear() || !startValidation">
+                Enter a year between 1900 and {{curYear}}
+            </div>
+            <div class="input-group pers-margin">
+                <span class="input-group-addon pers-lab">Relationship</span>
+                <select class="form-control pers-wid" ng-options="pickRelative for pickRelative in pickRelatives"
+                        ng-model="person.relationship"></select>
+            </div>
+            <div class="input-group pers-margin">
+                <span class="input-group-addon pers-lab">Special Needs</span>
+
+                <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="checkbox" ng-model="None">
+                </span>
+
+                    <div class="form-control chk-wid">None</div>
+                </div>
+                <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="checkbox" value="Vision" ng-model="Vision">
+                </span>
+
+                    <div class="form-control chk-wid">Vision</div>
+                </div>
+                <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="checkbox" ng-model="Medical">
+                </span>
+
+                    <div class="form-control chk-wid">Medical</div>
+                </div>
+                <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="checkbox" ng-model="Handicap">
+                </span>
+
+                    <div class="form-control chk-wid">Handicap</div>
+                </div>
+            </div>
+
+            <div class="pers-margin">
+                <textarea class="form-control" style="height: 100px; width: 317px;"
+                          placeholder="Enter extra comments if needed..."
+                          ng-model="person.comments"></textarea>
+            </div>
         </div>
         <br>
-        <div class="row">
-            <label>Special Needs</label>
-            <label class="checkbox">
-                <input type="checkbox" ng-model="person.specialConditions">
-                    <p>None</p>
-                <input type="checkbox" ng-model="person.specialConditions">
-                    <p>Vision Needs</p>
-                <input type="checkbox" ng-model="person.specialConditions">
-                    <p>Medical Needs</p>
-                <input type="checkbox" ng-model="person.specialConditions">
-                    <p>Physical Handicap</p>
-            </label>
-        </div>
+        <button class="btn btn-success center-block" ng-click="addPerson()">Save</button>
+        <br>
     </div>
-
-
-
 </div>

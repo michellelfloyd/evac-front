@@ -12,26 +12,33 @@ angular.module('myApp.route-planner', ['ngRoute'])
     .controller('RoutePlannerCtrl', ['$scope', 'GoogleMapApi'.ns(), function ($scope, GoogleMapApi) {
 
         $scope.locations = [
-            'orem, ut',
-            'payson, ut',
-            'springville, ut'
+            "Orem, UT",
+            "Springville, UT",
+            "Payson, UT"
         ];
 
 
         $scope.waypoints = [];
 
-        $scope.input = document.getElementById('searchTextField');
-        $scope.autoComplete = new google.maps.places.Autocomplete(input);
 
-        google.maps.event.addListener($scope.autoComplete, 'place_changed', function () {
-            var place = $scope.autoComplete.getPlace();
-            $scope.selected = place.formatted_address;
-        });
+//        $scope.input = document.getElementById('searchTextField');
+//        $scope.autoComplete = new google.maps.places.Autocomplete(input);
+//        var markerHandler = function() {
+//            $scope.maps.event.addListener($scope.map.marker, 'click', function () {
+//                var place = $scope.maps.marker.getPosition();
+//                $scope.selected = place.latLng;
+//            });
+//        }
+        $scope.addWaypoint = function (placeString) {
 
-        $scope.addWaypoint = function () {
-
-            var locationObject = {location: $scope.selected};
-            $scope.waypoints.push(locationObject);
+            var numString = placeString.replace(/[()]/g,'');
+            var splitLocation = numString.split(",");
+            var floatLat = parseFloat(splitLocation[0]);
+            var floatLong = parseFloat(splitLocation[1]);
+//            var locationObject = $scope.maps.Geocoder(placeString);
+            var locationObject = new $scope.maps.LatLng(floatLat, floatLong);
+            var location = {location: locationObject};
+            $scope.waypoints.push(location);
             $scope.calcRoute();
         };
 
@@ -65,13 +72,16 @@ angular.module('myApp.route-planner', ['ngRoute'])
             controlText.innerHTML = '<b>Bank</b>';
             controlUI.appendChild(controlText);
 
+
             $scope.maps.event.addDomListener(controlUI, 'click', function () {
                 var infowindow;
+
                 var newYork = new $scope.maps.LatLng(40.69847032728747, -73.9514422416687);
+                var center = $scope.map.getCenter();
                 var request = {
 
-                    location: newYork,
-                    radius: 500,
+                    location: center,
+                    radius: 50000,
                     types: ['bank']
                 };
                 $scope.infowindow = new $scope.maps.InfoWindow();
@@ -86,18 +96,32 @@ angular.module('myApp.route-planner', ['ngRoute'])
                         $scope.createMarker(results[i]);
                     }
                 }
-            }
+            };
 
             $scope.createMarker = function (place) {
                 var placeLoc = place.geometry.location;
                 var marker = new $scope.maps.Marker({
                     map: $scope.map,
                     position: place.geometry.location
-                })
+                });
+
+
+
+
+                var contentString =
+                    place.name +
+                    '<div id="content">' +
+                    '<div id="siteNotice">' +
+                    '</div>' +
+                    '<div id="bodyContent">' +
+                    '<button onclick="$(\'#bodyContent\').scope().addWaypoint(\'' + place.geometry.location + '\'); console.log(\'You clicked\')">Add</button>' +
+                    '</div>' +
+                    '</div>';
 
                 $scope.maps.event.addListener(marker, 'click', function () {
-                    $scope.infowindow.setContent(place.name);
+                    $scope.infowindow.setContent(contentString);
                     $scope.infowindow.open($scope.map, this);
+
                 });
             }
 
@@ -113,15 +137,16 @@ angular.module('myApp.route-planner', ['ngRoute'])
         $scope.initialize = function () {
 
 
+//            markerHandler()
             $scope.travelMode = $scope.maps.TravelMode.DRIVING;
-            $scope.start = "new york";
-            $scope.end = "new york";
+            var newYork = new $scope.maps.LatLng(40.69847032728747, -73.9514422416687);
+            $scope.start = newYork;
+            $scope.end = newYork;
             $scope.rendererOptions = {
                 draggable: true
             };
             $scope.directionsDisplay = new $scope.maps.DirectionsRenderer($scope.rendererOptions);
             $scope.directionsService = new $scope.maps.DirectionsService();
-
 
             $scope.travelModes = [
                 {
@@ -155,7 +180,17 @@ angular.module('myApp.route-planner', ['ngRoute'])
             $scope.directionsDisplay.setPanel(document.getElementById("directionsPanel"));
             $scope.maps.event.addListener($scope.directionsDisplay, 'directions_changed', function () {
                 $scope.computeTotalDistance($scope.directionsDisplay.getDirections());
+
+
             });
+
+
+            $scope.bankControlDiv;
+
+            $scope.bankControlDiv = document.createElement('div');
+            $scope.bankControl = new $scope.BankControl($scope.bankControlDiv, $scope.map);
+            $scope.bankControlDiv.index = 1;
+            $scope.map.controls[$scope.maps.ControlPosition.TOP_RIGHT].push($scope.bankControlDiv);
 
             $scope.calcRoute()
         };
@@ -175,13 +210,6 @@ angular.module('myApp.route-planner', ['ngRoute'])
                     $scope.directionsDisplay.setPanel(document.getElementById("directionsPanel"));
                 }
             });
-
-            $scope.bankControlDiv;
-
-            $scope.bankControlDiv = document.createElement('div');
-            $scope.bankControl = new $scope.BankControl($scope.bankControlDiv, $scope.map);
-            $scope.bankControlDiv.index = 1;
-            $scope.map.controls[$scope.maps.ControlPosition.TOP_RIGHT].push($scope.bankControlDiv);
 
 
             $scope.maps.event.trigger($scope.map, 'resize');
