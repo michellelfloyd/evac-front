@@ -20,18 +20,24 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
         $scope.waypoints = [];
 
-        $scope.input = document.getElementById('searchTextField');
-        $scope.autoComplete = new google.maps.places.Autocomplete(input);
+//        $scope.input = document.getElementById('searchTextField');
+//        $scope.autoComplete = new google.maps.places.Autocomplete(input);
+//        var markerHandler = function() {
+//            $scope.maps.event.addListener($scope.map.marker, 'click', function () {
+//                var place = $scope.maps.marker.getPosition();
+//                $scope.selected = place.latLng;
+//            });
+//        }
+        $scope.addWaypoint = function (placeString) {
 
-        google.maps.event.addListener($scope.autoComplete, 'place_changed', function () {
-            var place = $scope.autoComplete.getPlace();
-            $scope.selected = place.formatted_address;
-        });
-
-        $scope.addWaypoint = function () {
-
-            var locationObject = {location: $scope.selected};
-            $scope.waypoints.push(locationObject);
+            var numString = placeString.replace(/[()]/g,'');
+            var splitLocation = numString.split(",");
+            var floatLat = parseFloat(splitLocation[0]);
+            var floatLong = parseFloat(splitLocation[1]);
+//            var locationObject = $scope.maps.Geocoder(placeString);
+            var locationObject = new $scope.maps.LatLng(floatLat, floatLong);
+            var location = {location: locationObject};
+            $scope.waypoints.push(location);
             $scope.calcRoute();
         };
 
@@ -66,7 +72,6 @@ angular.module('myApp.route-planner', ['ngRoute'])
             controlUI.appendChild(controlText);
 
 
-
             $scope.maps.event.addDomListener(controlUI, 'click', function () {
                 var infowindow;
 
@@ -99,9 +104,23 @@ angular.module('myApp.route-planner', ['ngRoute'])
                     position: place.geometry.location
                 });
 
+
+
+
+                var contentString =
+                    place.name +
+                    '<div id="content">' +
+                    '<div id="siteNotice">' +
+                    '</div>' +
+                    '<div id="bodyContent">' +
+                    '<button onclick="$(\'#bodyContent\').scope().addWaypoint(\'' + place.geometry.location + '\'); console.log(\'You clicked\')">Add</button>' +
+                    '</div>' +
+                    '</div>';
+
                 $scope.maps.event.addListener(marker, 'click', function () {
-                    $scope.infowindow.setContent(place.name);
+                    $scope.infowindow.setContent(contentString);
                     $scope.infowindow.open($scope.map, this);
+
                 });
             }
 
@@ -117,6 +136,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
         $scope.initialize = function () {
 
 
+//            markerHandler()
             $scope.travelMode = $scope.maps.TravelMode.DRIVING;
             var newYork = new $scope.maps.LatLng(40.69847032728747, -73.9514422416687);
             $scope.start = newYork;
@@ -164,7 +184,6 @@ angular.module('myApp.route-planner', ['ngRoute'])
             });
 
 
-
             $scope.bankControlDiv;
 
             $scope.bankControlDiv = document.createElement('div');
@@ -190,8 +209,6 @@ angular.module('myApp.route-planner', ['ngRoute'])
                     $scope.directionsDisplay.setPanel(document.getElementById("directionsPanel"));
                 }
             });
-
-
 
 
             $scope.maps.event.trigger($scope.map, 'resize');
