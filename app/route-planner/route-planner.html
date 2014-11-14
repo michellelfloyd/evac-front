@@ -1,37 +1,43 @@
-<div class="container">
 <div id="panel">
-    <b>Mode of Travel: </b>
-    <select ng-model="travelMode" ng-options="mode.value as mode.name for mode in travelModes" ng-change="calcRoute()">
+    <div id="map-inputs">
+        <div id="modeDiv">
+            <h4>Travel Mode: </h4>
+            <select ng-model="travelMode" ng-options="mode.value as mode.name for mode in travelModes" ng-change="calcRoute()">
+            </select>
+        </div>
 
-    </select>
-</div>
 
-<div id="panel">
-    <b>Start: </b>
-    <select ng-model="start" ng-options="location for location in locations" ng-change="calcRoute()">
-    </select>
+        <div id="startDiv">
+            <h4>Start: </h4>
+            <select ng-model="start" ng-options="location for location in locations" ng-change="calcRoute()">
+            </select>
+        </div>
 
-    <h4>Waypoints:</h4>
-    <!--<pre>Model: {{selected | json}}</pre>-->
-    <!--<input ng-model="selected" id="input" class="controls" type="text">-->
-    <!--<button ng-click="addWaypoint()">Add</button>-->
-    <ul>
-        <li ng-repeat="waypoint in waypoints track by waypoint.location">{{waypoint.location}}
+        <div id="waypointsDiv">
+            <h4>Waypoints:</h4>
+            <!--<pre>Model: {{selected | json}}</pre>-->
+            <!--<input ng-model="selected" id="input" class="controls" type="text">-->
+            <!--<button ng-click="addWaypoint()">Add</button>-->
+            <ul>
+                <li ng-repeat="waypoint in waypoints">{{waypoint.location}}
 
-            <i ng-click="deleteWaypoint(waypoint)" class="fa fa-close"></i>
+                    <i ng-click="deleteWaypoint(waypoint)" class="fa fa-close"></i>
 
-        </li>
-    </ul>
-    <div>
-        <b>End: </b>
-        <select ng-model="end" ng-options="location for location in locations" ng-change="calcRoute()">
-        </select>
+                </li>
+            </ul>
+        </div>
+        <div id="endDiv">
+            <h4>End: </h4>
+            <select ng-model="end" ng-options="location for location in locations" ng-change="calcRoute()">
+            </select>
+        </div>
     </div>
-</div>
 
-<div style="text-align: center">
     <div id="map-canvas"></div>
-    <div id="directionsPanel"></div>
-    <p>Total Distance: <span id="total"></span></p>
-</div>
+    <div id="ddPanel">
+        <div id="directionsPanel"></div>
+        <div id="distancePanel">
+            <p>Total Distance: <span id="total"></span></p>
+        </div>
+    </div>
 </div>

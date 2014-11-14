@@ -20,7 +20,6 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
         $scope.waypoints = [];
 
-
 //        $scope.input = document.getElementById('searchTextField');
 //        $scope.autoComplete = new google.maps.places.Autocomplete(input);
 //        var markerHandler = function() {
@@ -40,6 +39,8 @@ angular.module('myApp.route-planner', ['ngRoute'])
             var location = {location: locationObject};
             $scope.waypoints.push(location);
             $scope.calcRoute();
+
+
         };
 
         $scope.deleteWaypoint = function (waypoint) {
@@ -222,7 +223,8 @@ angular.module('myApp.route-planner', ['ngRoute'])
                 total += myroute.legs[i].distance.value;
             }
             total = total / 1000.0;
-            document.getElementById('total').innerHTML = total + 'km';
+                var totalMiles = total * 0.621371;
+            document.getElementById('total').innerHTML = totalMiles + ' mi - ' + total + ' km';
         }
 
 
