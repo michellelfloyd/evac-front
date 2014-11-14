@@ -2,6 +2,18 @@
 
     <h2 class="who-what-title">Who will go with you?</h2>
 
+    <div class="input-group pers-margin">
+
+
+        <div class="input-group" ng-repeat="person in people">
+                <span class="input-group-addon">
+                    <input type="checkbox" ng-model="None">
+                </span>
+
+            <div class="form-control chk-wid">{{ person.name}}</div>
+        </div>
+    </div>
+
     <div class="tab-out-con">
         <div class="tab-in-con">
             <tabset justified="true">

@@ -19,6 +19,22 @@ angular.module('myApp.add-person', ['ngRoute'])
             return $scope.person.birthYear > 1900 && $scope.person.birthYear <= $scope.curYear;
         };
 
+        var conditionChecked = function () {
+            var condList = [];
+            for (var conditionId=0; conditionId < $scope.specialConditions.length; conditionId++) {
+                var condition = $scope.specialConditions[conditionId];
+                if (condition.hasOwnProperty('checked') && condition.checked) {
+                    condList.push(condition.id);
+                }
+            }
+            $scope.person.special_conditions = condList;
+        };
+
+        Restangular.all('special-conditions/').getList().then(function (specialConditions) {
+            $scope.specialConditions = specialConditions;
+
+        });
+
 
         $scope.months = [
             { str: "Month",
@@ -98,6 +114,7 @@ angular.module('myApp.add-person', ['ngRoute'])
         ];
 
 
+
         $scope.genderChange = function () {
             if ($scope.person.gender == 'Male') {
                 $scope.pickRelatives = $scope.malerelative
@@ -106,6 +123,7 @@ angular.module('myApp.add-person', ['ngRoute'])
             }
         };
         $scope.addPerson = function () {
+            conditionChecked();
             Restangular.all('add-person/').customPOST($scope.person).then(function () {
                     alert("Your person was successfully added");
                 }
