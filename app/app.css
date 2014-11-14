@@ -263,20 +263,103 @@ a.accordion-toggle:hover {
 
     /* Internet Explorer */
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3) !important;
-border-radius: 7px;
+    border-radius: 7px;
+    height:450px;
+    border-radius: 7px;
+    background-color: lightgoldenrodyellow;
+
 }
 
-.destination-panel-border span {
-    margin-right: 8%;
+span.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 2;
+    margin-right: 10px;
 }
 
-.destination-header {
+.destination-header.glyphicon {
+    font-size: 1.4em;
+    margin-right: 10px;
+}
+
+
+button.destination-btn-default  {
+    color: #333;
+    background-color: lightskyblue;
+    border-color: black;
+    padding-right:6%;
+    padding-left:2%
+
+}
+
+span.destination-glyphicon-map-marker  {
+   font-size: 3em;
+   font-weight: bold;
+}
+
+div.destination-body-text  {
+    text-align: left;
+    padding-top: 2%;
+    background-color: lightgoldenrodyellow;
+    width: 130px;
+    padding-bottom: 100px;
+}
+
+div.destination-header {
+    margin-top: 0;
+    margin-bottom: 8px;
+    padding: 10px;
     background-color: lightgray;
     border-radius: 7px 7px 0 0;
+    text-align: center;
 }
 
-.destination-header h5 {
-    margin-top: 0;
-    padding: 22px 0;
+.destination-type {
+    padding-bottom: 15px;
+}
 
+.destination-type img {
+    max-height: 40px;
+}
+
+.destination-type button {
+    position: relative;
+}
+
+.destination-type button:hover {
+    background-color: orangered;
+    -webkit-box-shadow: inset 0 0 8px 1px rgba(51,51,51,1);
+    -moz-box-shadow: inset 0 0 8px 1px rgba(51,51,51,1);
+    box-shadow: inset 0 0 8px 1px rgba(51,51,51,1);
+}
+
+<<<<<<< HEAD
+=======
+.destination-type button:hover img {
+    opacity: .6;
+}
+
+.destination-type .destination-type-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: white;
+    font-size: 1.2em;
+    visibility: hidden;
+    top: 25%;
+}
+
+.type-button:hover .destination-type-text {
+    visibility: visible;
+}
+
+.add-destination {
+    text-align: right;
+    margin-right: 10px;
+    margin-bottom: 8px;
+>>>>>>> All of my destination additions. Includes separate HTML pages for each section that will be ng-included and lots of styling changes on app.css
 }

@@ -31,6 +31,7 @@ angular.module('myApp', [
             controller: 'DestinationCtrl'
         });
 
+
         GoogleMapApi.configure({
             key: 'AIzaSyBgI1EKHNT3ArARMd9U9Ya4JYtHomJKL4E',
             v: '3.17',

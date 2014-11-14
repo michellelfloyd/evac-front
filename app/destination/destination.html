@@ -1,22 +1,58 @@
+<div ng-controller="DestinationCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 destination-panel-border">
+                <div class="destination-header">
+                    <h5><span class="glyphicon glyphicon-map-marker"></span>Close Range (0-75 miles)</h5>
+                </div>
+
+                <div class="add-destination">
+                    <a href="#"><span class="glyphicon glyphicon-plus"></span> Add Destination</a>
+                </div>
+                <div class="destination-body">
+
+                    <div class="destination-body-text center-block">
+
+                        <span class="glyphicon glyphicon-home"></span>
+
+                        <strong> Maggie's Place</strong><br>
+
+                        <span class="glyphicon glyphicon-map-marker"></span>
+
+                        <strong>Payson, UT</strong><br>
+
+                        <span class="glyphicon glyphicon-phone-alt"></span>
+
+                        <strong>801-400-5447</strong><br>
+
+                        <span class="glyphicon glyphicon-picture"></span>
+
+                        <strong>Route Selected</strong><br>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
 <div class="row">
     <div class="col-sm-3 col-sm-offset-1 destination-panel-border">
         <div class="destination-header">
-            <h5><span class="glyphicon glyphicon-arrow-down"></span>Close Range (15-75 miles)</h5>
-        </div>
-    </div>
-    <div class="col-sm-3 destination-panel-border">
-        <div class="destination-header">
-            <h5><span class="glyphicon glyphicon-arrow-down"></span>Mid Range (76-200 miles)</h5>
-        </div>
-    </div>
-    <div class="col-sm-3 destination-panel-border">
-        <div class="destination-header">
-            <h5><span class="glyphicon glyphicon-arrow-down"></span>Long Range (201-1000+ miles)</h5>
-        </div>
 
-        <button type="button" class="btn btn-default btn-lg">
-            <span class="glyphicon glyphicon-home"></span>
-        </button>
+        </div>
+        <div>
+            <textarea name="myTextBox" cols="30" rows="5">
+                Household Name
+            </textarea>
+            <br/>
+            <input type="submit"/>
+
+        </div>
     </div>
    <label ng-repeat="route in route" heading="{{route.destinations}}">
         <div ng-repeat="stop in route.destinations">
@@ -31,3 +67,9 @@
 
 </div>
 
+<div class="col-sm-3 col-sm-offset-1 destination-panel-border">
+    <div class="destination-header"></div>
+
+    <div class="icon"></div>
+    <p>House icon: <span class="glyphicon glyphicon-house"></span></p>
+</div>
