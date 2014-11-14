@@ -1,6 +1,6 @@
 <div class="container">
 
-    <h2>Add A Person</h2>
+    <h2 class="who-what-title" style="margin-bottom: 0px;">Add a Person</h2>
 
     <div class="form-group">
         <label>Name</label>
@@ -55,33 +55,12 @@
             <div class="input-group pers-margin">
                 <span class="input-group-addon pers-lab">Special Needs</span>
 
-                <div class="input-group">
+                <div class="input-group" ng-repeat="condition in specialConditions">
                 <span class="input-group-addon">
-                    <input type="checkbox" ng-model="None">
+                    <input type="checkbox" ng-model="condition.checked">
                 </span>
 
-                    <div class="form-control chk-wid">None</div>
-                </div>
-                <div class="input-group">
-                <span class="input-group-addon">
-                    <input type="checkbox" value="Vision" ng-model="Vision">
-                </span>
-
-                    <div class="form-control chk-wid">Vision</div>
-                </div>
-                <div class="input-group">
-                <span class="input-group-addon">
-                    <input type="checkbox" ng-model="Medical">
-                </span>
-
-                    <div class="form-control chk-wid">Medical</div>
-                </div>
-                <div class="input-group">
-                <span class="input-group-addon">
-                    <input type="checkbox" ng-model="Handicap">
-                </span>
-
-                    <div class="form-control chk-wid">Handicap</div>
+                    <div class="form-control chk-wid">{{ condition.name }}</div>
                 </div>
             </div>
 
