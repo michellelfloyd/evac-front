@@ -53,12 +53,12 @@
 
  #map-inputs {
      height: 400px;
-     width: 10%;
+     width: 15%;
      display: inline-block;
      vertical-align: top;
      /*text-align: left;*/
      /*border: .1em solid #999;*/
-     padding: 1em;
+     /*padding: 1em;*/
  }
 
  #directionsPanel {
@@ -72,6 +72,7 @@
      height: 20px;
      width: 100%;
      vertical-align: bottom;
+     background-color: rgba(120, 120, 120, .4);
  }
 
  #ddPanel{
@@ -79,7 +80,9 @@
      width: 20%;
      display: inline-block;
      vertical-align: top;
-     border: .1em solid #999;
+     /*border: .1em solid #999;*/
+     background-color: rgba(0, 20, 173, .1);
+     /*padding: 1em;*/
  }
 
  #modeDiv {
