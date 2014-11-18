@@ -1,0 +1,45 @@
+<div class="container">
+    <h2>Pet Details</h2>
+
+    <div ng-controller="PetDetailCtrl" ng-model="oneAtATime">
+
+
+        <accordion close-others="OneAtATime">
+            <!--<div class="row input-group" ng-repeat="pet in pets">-->
+                <accordion-group heading="{{pet.name}}" ng-repeat="pet in pets">
+                <div>
+                    <input type="text" class="form-control" ng-model="pet.breed">
+                </div>
+                <br>
+                <br>
+
+                <div class="form-control">
+                    <span class="input-group-addon">Age</span>
+                    <select class="form-control" ng-options="petAge for petAge in petAge" ng-model="pet.age"></select>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <div>
+                    <input type="text" class="form-control" ng-model="pet.weight">
+                </div>
+                <br>
+                <br>
+
+                <div ng-repeat="preference in preference">
+                    <input type="checkbox"  ng-model="preference.clicked">
+                    <span >{{preference.choice}}</span>
+                    <span class="glyphicon glyphicon-info-sign" ng-model="preference.info"></span>
+                    <span ng-show="preference.chosen"></span>
+
+                </div>
+
+                <button class="btn btn-info btn-sm pad-but" type="button" ng-click="backupPlan()">Backup</button>
+            <!--</div>-->
+                </accordion-group>
+        </accordion>
+        <button class="btn btn-success center-block" ng-click="addDetails()">Continue</button>
+    </div>
+</div>
