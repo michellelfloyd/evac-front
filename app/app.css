@@ -320,3 +320,8 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3) !important;
 
 }
 
+.pad-but {
+    margin-top:10px;
+    padding: 2px;
+}
+
