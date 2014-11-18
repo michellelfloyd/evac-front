@@ -91,7 +91,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
             $scope.currentMarkers = [];
         };
 
-        $scope.SearchControl = function (controlDiv, map, searchCategory) {
+        $scope.SearchControl = function (controlDiv, map, searchCategory, buttonName) {
 
             controlDiv.style.padding = '5px';
             controlDiv.index = 10;
@@ -102,7 +102,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
             controlUI.style.borderWidth = '2px';
             controlUI.style.cursor = 'pointer';
             controlUI.style.textAlign = 'center';
-            controlUI.title = 'Click to find ' + searchCategory +'s nearby';
+            controlUI.title = 'Click to find ' + buttonName +'s nearby';
             controlDiv.appendChild(controlUI);
 
             var controlText = document.createElement('div');
@@ -110,7 +110,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
             controlText.style.fontSize = '12px';
             controlText.style.paddingLeft = '4px';
             controlText.style.paddingRight = '4px';
-            controlText.innerHTML = '<b><i class="fa fa-bank"></i> ' +searchCategory + '</b>';
+            controlText.innerHTML = '<b><i class="fa fa-bank"></i> ' +buttonName + '</b>';
             controlUI.appendChild(controlText);
 
 
@@ -175,21 +175,21 @@ angular.module('myApp.route-planner', ['ngRoute'])
         };
 
         var createButtons = function() {
-            createButton('Bank');
-            createButton('Hospital');
-            createButton('Church');
-            createButton('Pharmacy');
-            createButton('Veterinary_Care');
-            createButton('Grocery_or_Supermarket');
-            createButton('Restaurant');
-            createButton('Gas_Station');
-            createButton('Airport');
+            createButton('bank', 'Bank');
+            createButton('hospital', 'Hospital');
+            createButton('church', 'Church');
+            createButton('pharmacy', 'Pharmacy');
+            createButton('veterinary_care', 'Vet');
+            createButton('grocery_or_supermarket', 'Grocery Store');
+            createButton('restaurant', 'Restaurant');
+            createButton('gas_station', 'Gas Station');
+            createButton('airport', 'Airport');
 
         };
 
-        var createButton = function(searchCategory) {
+        var createButton = function(searchCategory, buttonName) {
             $scope.searchControlDiv = document.createElement('div');
-            $scope.searchControl = new $scope.SearchControl($scope.searchControlDiv, $scope.map, searchCategory);
+            $scope.searchControl = new $scope.SearchControl($scope.searchControlDiv, $scope.map, searchCategory, buttonName);
             $scope.searchControlDiv.index = 1;
             $scope.map.controls[$scope.maps.ControlPosition.RIGHT_BOTTOM].push($scope.searchControlDiv);
         };
