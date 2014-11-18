@@ -21,6 +21,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
         $scope.waypoints = [];
         $scope.waypointNames = [];
+        $scope.currentMarkers = [];
 
 //        $scope.input = document.getElementById('searchTextField');
 //        $scope.autoComplete = new google.maps.places.Autocomplete(input);
@@ -78,6 +79,18 @@ angular.module('myApp.route-planner', ['ngRoute'])
             }
         };
 
+        var removeMarkers = function() {
+
+            if ($scope.currentMarkers) {
+                for (var i = 0; i < $scope.currentMarkers.length; i++) {
+                    var currentMarker = $scope.currentMarkers[i];
+                    currentMarker.setMap(null);
+                }
+            }
+
+            $scope.currentMarkers = [];
+        };
+
         $scope.SearchControl = function (controlDiv, map, searchCategory) {
 
             controlDiv.style.padding = '5px';
@@ -101,6 +114,9 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
 
             var registerButton = function(searchCategory) {
+
+                removeMarkers();
+
                 var newYork = new $scope.maps.LatLng(40.69847032728747, -73.9514422416687);
                 var center = $scope.map.getCenter();
                 var request = {
@@ -130,6 +146,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
                     position: place.geometry.location
                 });
 
+                $scope.currentMarkers.push(marker);
 
 //                console.log(place);
 //                var stringDict = JSON.stringify(place);
@@ -159,6 +176,14 @@ angular.module('myApp.route-planner', ['ngRoute'])
         var createButtons = function() {
             createButton('Bank');
             createButton('Hospital');
+            createButton('Church');
+            createButton('Pharmacy');
+            createButton('Veterinary_Care');
+            createButton('Grocery_or_Supermarket');
+            createButton('Restaurant');
+            createButton('Gas_Station');
+            createButton('Airport');
+
         };
 
         var createButton = function(searchCategory) {
