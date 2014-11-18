@@ -94,6 +94,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
         $scope.SearchControl = function (controlDiv, map, searchCategory) {
 
             controlDiv.style.padding = '5px';
+            controlDiv.index = 10;
 
             var controlUI = document.createElement('div');
             controlUI.style.backgroundColor = 'white';
@@ -190,7 +191,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
             $scope.searchControlDiv = document.createElement('div');
             $scope.searchControl = new $scope.SearchControl($scope.searchControlDiv, $scope.map, searchCategory);
             $scope.searchControlDiv.index = 1;
-            $scope.map.controls[$scope.maps.ControlPosition.TOP_RIGHT].push($scope.searchControlDiv);
+            $scope.map.controls[$scope.maps.ControlPosition.RIGHT_BOTTOM].push($scope.searchControlDiv);
         };
 
 
