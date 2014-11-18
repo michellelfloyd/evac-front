@@ -96,7 +96,8 @@ angular.module('myApp.route-planner', ['ngRoute'])
             controlText.style.fontSize = '12px';
             controlText.style.paddingLeft = '4px';
             controlText.style.paddingRight = '4px';
-            controlText.innerHTML = '<b><i class="fa fa-bank"></i> Bank</b>';
+            var searchCategory = 'Bank';
+            controlText.innerHTML = '<b><i class="fa fa-bank"></i> ' +searchCategory + '</b>';
             controlUI.appendChild(controlText);
 
 
