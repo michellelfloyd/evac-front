@@ -1,64 +1,44 @@
 <div ng-controller="DestinationCtrl">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4 destination-panel-border">
-                <div class="destination-header">
-                    <h5><span class="glyphicon glyphicon-map-marker"></span>Close Range (0-75 miles)</h5>
-                </div>
-                <div class="add-destination">
-                    <a href="#"><span class="glyphicon glyphicon-plus"></span> Add Destination</a>
-                </div>
-                <div class="destination-type">
-                    <p>Type</p>
-
-                    <div class="text-center">
-
-                        <button type="button" class="btn btn-default btn-sm type-button">
-                            <img src="img/dwelling1.png">
-                            <span class="destination-type-text">House</span>
-                        </button>
-
-                        <button type="button" class="btn btn-default btn-sm type-button">
-                            <img src="img/hotel76.png">
-                            <span class="destination-type-text">Hotel</span>
-
-                        </button>
-
-                        <button type="button" class="btn btn-default btn-sm type-button">
-                            <img src="img/church7.png">
-                            <span class="destination-type-text">Church</span>
-                        </button>
-
-                    </div>
-                </div>
-                <div class="destination-body">
-
-                    <div class="destination-body-text center-block">
-
-                        <span class="glyphicon glyphicon-home"></span>
-
-                        <strong> Maggie's Place</strong><br>
-
-                        <span class="glyphicon glyphicon-map-marker"></span>
-
-                        <strong>Payson, UT</strong><br>
-
-                        <span class="glyphicon glyphicon-phone-alt"></span>
-
-                        <strong>801-400-5447</strong><br>
-
-                        <span class="glyphicon glyphicon-picture"></span>
-
-                        <strong>Route Selected</strong><br>
-
+            <div class="col-sm-4" style="padding: 20px">
+                <div class="destination-panel-border">
+                    <div class="destination-header">
+                        <h5><span class="glyphicon glyphicon-map-marker"></span>Close Range (0-75 miles)</h5>
                     </div>
 
+                    <!--<ng-include src="'destination/add-destination.html'"></ng-include> <br/>-->
+                    <!--<ng-include src="'destination/type.html'"></ng-include> <br/>-->
+                    <ng-include src="'destination/household-name.html'"></ng-include> <br/>
+                    <!--<ng-include src="'destination/address.html'"></ng-include> <br/>-->
+                    <!--<ng-include src="'destination/contact.html'"></ng-include> <br/>-->
+
+                    <div class="destination-body">
+
+                        <div class="destination-body-text center-block">
+
+                            <span class="glyphicon glyphicon-home"></span>
+
+                            <strong> Maggie's Place</strong><br>
+
+                            <span class="glyphicon glyphicon-map-marker"></span>
+
+                            <strong>Payson, UT</strong><br>
+
+                            <span class="glyphicon glyphicon-phone-alt"></span>
+
+                            <strong>801-400-5447</strong><br>
+
+                            <span class="glyphicon glyphicon-picture"></span>
+
+                            <strong>Route Selected</strong><br>
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>
-
 

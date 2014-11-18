@@ -241,7 +241,7 @@ a.accordion-toggle:hover {
 .destination-panel-border{
     border-style: solid;
     border-width: 2px;
-    margin: 10px;
+    margin: 0px;
     padding: 0 !important;
     text-align: center;
     height:450px;
@@ -283,8 +283,7 @@ span.destination-glyphicon-map-marker  {
 div.destination-body-text  {
     text-align: center;
     padding-top: 19%;
-    background-color: lightgoldenrodyellow;
-    width: 315px;
+    width: 284px;
     padding-bottom: 70px;
 }
 
@@ -299,7 +298,7 @@ div.destination-header {
 }
 
 .destination-type {
-    padding-bottom: 15px;
+    padding-bottom: 14px;
     background-color: lightskyblue;
 }
 
@@ -337,8 +336,13 @@ div.destination-header {
 }
 
 .add-destination {
-    text-align: right;
+    text-align: right;=
     margin-right: 10px;
     margin-bottom: 8px;
 
+}
+
+.destination-type .contact {
+    padding-bottom: 14px;
+    background-color: lightskyblue;
 }
