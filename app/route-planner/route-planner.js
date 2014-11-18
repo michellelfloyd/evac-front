@@ -1,4 +1,5 @@
 'use strict';
+var globalWaypoints = [];
 
 angular.module('myApp.route-planner', ['ngRoute'])
 
@@ -19,7 +20,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
 
         $scope.waypoints = [];
-
+        $scope.waypointNames = [];
 
 //        $scope.input = document.getElementById('searchTextField');
 //        $scope.autoComplete = new google.maps.places.Autocomplete(input);
@@ -37,16 +38,42 @@ angular.module('myApp.route-planner', ['ngRoute'])
             var floatLong = parseFloat(splitLocation[1]);
 //            var locationObject = $scope.maps.Geocoder(placeString);
             var locationObject = new $scope.maps.LatLng(floatLat, floatLong);
+            globalWaypoints.push({location: locationObject});
+
             var location = {location: locationObject};
             $scope.waypoints.push(location);
+
+            $scope.$apply();
             $scope.calcRoute();
+
         };
 
-        $scope.deleteWaypoint = function (waypoint) {
+        $scope.addWaypointName = function(stringName) {
+//            var wwName = stringName;
+            $scope.waypointNames.push({name: stringName});
 
-            var index = $scope.waypoints.indexOf(waypoint);
+            $scope.$apply();
+//            console.log(place);
+//            console.log(place.name);
+//            console.log(place.vicinity);
+//            $scope.waypointNames.push({
+//                name: place.name,
+//                address: place.vicinity
+//            });
+//            $scope.$apply();
+//            $scope.addWaypointVic = function(vicString) {
+//                $scope.waypointNames.push({name: wwName, address: vicString});
+//                $scope.apply();
+//            };
+        };
+
+        $scope.deleteWaypoint = function (waypointName) {
+
+            var index = $scope.waypointNames.indexOf(waypointName);
             if (index > -1) {
                 $scope.waypoints.splice(index, 1);
+                globalWaypoints.splice(index, 1);
+                $scope.waypointNames.splice(index, 1);
                 $scope.calcRoute()
             }
         };
@@ -69,7 +96,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
             controlText.style.fontSize = '12px';
             controlText.style.paddingLeft = '4px';
             controlText.style.paddingRight = '4px';
-            controlText.innerHTML = '<b>Bank</b>';
+            controlText.innerHTML = '<b><i class="fa fa-bank"></i> Bank</b>';
             controlUI.appendChild(controlText);
 
 
@@ -106,15 +133,19 @@ angular.module('myApp.route-planner', ['ngRoute'])
                 });
 
 
+//                console.log(place);
+//                var stringDict = JSON.stringify(place);
 
-
+//                console.log(stringDict);
                 var contentString =
                     place.name +
+                    '<div></div>' +
+                    place.vicinity +
                     '<div id="content">' +
                     '<div id="siteNotice">' +
                     '</div>' +
                     '<div id="bodyContent">' +
-                    '<button onclick="$(\'#bodyContent\').scope().addWaypoint(\'' + place.geometry.location + '\'); console.log(\'You clicked\')">Add</button>' +
+                    '<button onclick="$(\'#bodyContent\').scope().addWaypoint(\'' + place.geometry.location + '\'); $(\'#bodyContent\').scope().addWaypointName(\'' + place.name + '\'); console.log(\'You clicked\')">Add</button>' +
                     '</div>' +
                     '</div>';
 
@@ -200,7 +231,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
                 origin: $scope.start,
                 destination: $scope.end,
 //                travelMode: $scope.maps.TravelMode.DRIVING
-                waypoints: $scope.waypoints,
+                waypoints: globalWaypoints,
                 optimizeWaypoints: true,
                 travelMode: $scope.travelMode
             };
@@ -222,9 +253,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
                 total += myroute.legs[i].distance.value;
             }
             total = total / 1000.0;
-            document.getElementById('total').innerHTML = total + 'km';
+                var totalMiles = total * 0.621371;
+            document.getElementById('total').innerHTML = totalMiles + ' mi - ' + total + ' km';
         }
-
-
     }]);
-

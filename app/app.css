@@ -36,25 +36,79 @@
 
 #map-canvas {
     height: 400px !important;
-    width: 60% !important;
+    width: 50% !important;
     margin: 0;
     padding: 0;
     display: inline-block;
 }
 
  #panel {
-        z-index: 5;
-        background-color: #fff;
-        padding: 5px;
-        border: 1px solid #999;
+    z-index: 5;
+    background-color: rgba(255,255,255,0.8);
+    padding: 1em;
+    border: .2em solid #999;
+    display: inline-block;
+    text-align: center;
+ }
+
+ #map-inputs {
+     height: 400px;
+     width: 15%;
+     display: inline-block;
+     vertical-align: top;
+     /*text-align: left;*/
+     /*border: .1em solid #999;*/
+     /*padding: 1em;*/
  }
 
  #directionsPanel {
+     height: 380px;
+     width: 100%;
+     display: inline-block;
+     overflow: scroll;
+     vertical-align: top;
+ }
+ #distancePanel{
+     height: 20px;
+     width: 100%;
+     vertical-align: bottom;
+     background-color: rgba(120, 120, 120, .4);
+ }
+
+ #ddPanel{
      height: 400px;
      width: 20%;
      display: inline-block;
-     overflow: scroll;
+     vertical-align: top;
+     /*border: .1em solid #999;*/
+     background-color: rgba(0, 20, 173, .1);
+     /*padding: 1em;*/
  }
+
+ #modeDiv {
+     /*border: .2em solid blue;*/
+     padding: 1em;
+     background-color: rgba(0, 20, 173, .4);
+ }
+
+ #startDiv {
+     /*border: .2em solid #008000;*/
+     padding: 1em;
+     background-color: rgba(0, 173, 26, .4);
+ }
+
+ #waypointsDiv {
+     /*border: .2em solid yellow;*/
+     padding: 1em;
+     background-color: rgba(255, 247, 0, .4);
+ }
+
+ #endDiv {
+     /*border: .2em solid red;*/
+     padding: 1em;
+     background-color: rgba(356, 100, 59, .4);
+ }
+ 
 div.panel-heading {
     background-color: #ffffff !important;
     border-radius: 10px !important;
