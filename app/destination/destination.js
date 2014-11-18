@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('myApp.destination', ['ngRoute'])
+angular.module('myApp.destination', ['ngRoute', 'restangular'])
 
-    .controller('DestinationCtrl', ['$scope', function($scope) {
+    .controller('DestinationCtrl', ['$scope', 'Restangular', function($scope, Restangular) {
         $scope.templates =
         [
             {name: "address.html", url: "address.html"},
@@ -12,17 +12,12 @@ angular.module('myApp.destination', ['ngRoute'])
             {name: "type.html", url: "type.html"}
         ];
 
-<<<<<<< HEAD
-.controller('DestinationCtrl', ['$scope', 'Restangular', function($scope, Restangular) {
-
-
-     Restangular.all('route/').getList().then(function(route) {
-      $scope.route = route;
-
-    });
-}]);
-=======
         $scope.template = $scope.templates[0];
+
+        Restangular.all('route/').getList().then(function(route) {
+          $scope.route = route;
+
+        });
+
     }]);
->>>>>>> All of my destination additions. Includes separate HTML pages for each section that will be ng-included and lots of styling changes on app.css
 

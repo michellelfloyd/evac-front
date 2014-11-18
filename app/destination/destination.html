@@ -5,9 +5,31 @@
                 <div class="destination-header">
                     <h5><span class="glyphicon glyphicon-map-marker"></span>Close Range (0-75 miles)</h5>
                 </div>
-
                 <div class="add-destination">
                     <a href="#"><span class="glyphicon glyphicon-plus"></span> Add Destination</a>
+                </div>
+                <div class="destination-type">
+                    <p>Type</p>
+
+                    <div class="text-center">
+
+                        <button type="button" class="btn btn-default btn-sm type-button">
+                            <img src="img/dwelling1.png">
+                            <span class="destination-type-text">House</span>
+                        </button>
+
+                        <button type="button" class="btn btn-default btn-sm type-button">
+                            <img src="img/hotel76.png">
+                            <span class="destination-type-text">Hotel</span>
+
+                        </button>
+
+                        <button type="button" class="btn btn-default btn-sm type-button">
+                            <img src="img/church7.png">
+                            <span class="destination-type-text">Church</span>
+                        </button>
+
+                    </div>
                 </div>
                 <div class="destination-body">
 
@@ -40,36 +62,3 @@
 </div>
 
 
-<div class="row">
-    <div class="col-sm-3 col-sm-offset-1 destination-panel-border">
-        <div class="destination-header">
-
-        </div>
-        <div>
-            <textarea name="myTextBox" cols="30" rows="5">
-                Household Name
-            </textarea>
-            <br/>
-            <input type="submit"/>
-
-        </div>
-    </div>
-   <label ng-repeat="route in route" heading="{{route.destinations}}">
-        <div ng-repeat="stop in route.destinations">
-            <ul>
-                <li>{{stop.name}}</li>
-                <li>{{stop.address}}</li>
-                <li>{{stop.phone}}</li>
-                <li>{{stop.type}}</li>
-            </ul>
-        </div>
-   </label>
-
-</div>
-
-<div class="col-sm-3 col-sm-offset-1 destination-panel-border">
-    <div class="destination-header"></div>
-
-    <div class="icon"></div>
-    <p>House icon: <span class="glyphicon glyphicon-house"></span></p>
-</div>
