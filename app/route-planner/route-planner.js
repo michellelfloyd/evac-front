@@ -91,7 +91,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
             $scope.currentMarkers = [];
         };
 
-        $scope.SearchControl = function (controlDiv, map, searchCategory, buttonName) {
+        $scope.SearchControl = function (controlDiv, map, searchCategory, buttonName, buttonIcon) {
 
             controlDiv.style.padding = '5px';
             controlDiv.index = 10;
@@ -110,7 +110,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
             controlText.style.fontSize = '12px';
             controlText.style.paddingLeft = '4px';
             controlText.style.paddingRight = '4px';
-            controlText.innerHTML = '<b><i class="fa fa-bank"></i> ' +buttonName + '</b>';
+            controlText.innerHTML = '<b><i class="' +buttonIcon + '"></i> ' +buttonName + '</b>';
             controlUI.appendChild(controlText);
 
 
@@ -175,21 +175,21 @@ angular.module('myApp.route-planner', ['ngRoute'])
         };
 
         var createButtons = function() {
-            createButton('bank', 'Bank');
-            createButton('hospital', 'Hospital');
-            createButton('church', 'Church');
-            createButton('pharmacy', 'Pharmacy');
-            createButton('veterinary_care', 'Vet');
-            createButton('grocery_or_supermarket', 'Grocery Store');
-            createButton('restaurant', 'Restaurant');
-            createButton('gas_station', 'Gas Station');
-            createButton('airport', 'Airport');
+            createButton('bank', 'Bank', 'fa fa-bank');
+            createButton('hospital', 'Hospital', 'fa fa-hospital-o');
+            createButton('church', 'Church', 'fa fa-bank');
+            createButton('pharmacy', 'Pharmacy', 'fa fa-medkit');
+            createButton('veterinary_care', 'Vet', 'fa fa-bank');
+            createButton('grocery_or_supermarket', 'Grocery Store', 'fa fa-shopping-cart');
+            createButton('restaurant', 'Restaurant', 'fa fa-bank');
+            createButton('gas_station', 'Gas Station', 'fa fa-bank');
+            createButton('airport', 'Airport', 'fa fa-plane');
 
         };
 
-        var createButton = function(searchCategory, buttonName) {
+        var createButton = function(searchCategory, buttonName, buttonIcon) {
             $scope.searchControlDiv = document.createElement('div');
-            $scope.searchControl = new $scope.SearchControl($scope.searchControlDiv, $scope.map, searchCategory, buttonName);
+            $scope.searchControl = new $scope.SearchControl($scope.searchControlDiv, $scope.map, searchCategory, buttonName, buttonIcon);
             $scope.searchControlDiv.index = 1;
             $scope.map.controls[$scope.maps.ControlPosition.RIGHT_BOTTOM].push($scope.searchControlDiv);
         };
