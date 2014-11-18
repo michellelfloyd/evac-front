@@ -78,7 +78,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
             }
         };
 
-        $scope.BankControl = function (controlDiv, map) {
+        $scope.SearchControl = function (controlDiv, map, searchCategory) {
 
             controlDiv.style.padding = '5px';
 
@@ -88,7 +88,6 @@ angular.module('myApp.route-planner', ['ngRoute'])
             controlUI.style.borderWidth = '2px';
             controlUI.style.cursor = 'pointer';
             controlUI.style.textAlign = 'center';
-            var searchCategory = 'Bank';
             controlUI.title = 'Click to find ' + searchCategory +'s nearby';
             controlDiv.appendChild(controlUI);
 
@@ -102,11 +101,9 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
 
             var registerButton = function(searchCategory) {
-
                 var newYork = new $scope.maps.LatLng(40.69847032728747, -73.9514422416687);
                 var center = $scope.map.getCenter();
                 var request = {
-
                     location: center,
                     radius: 50000,
                     types: [searchCategory]
@@ -114,10 +111,9 @@ angular.module('myApp.route-planner', ['ngRoute'])
                 $scope.infowindow = new $scope.maps.InfoWindow();
                 var service = new $scope.maps.places.PlacesService($scope.map);
                 service.nearbySearch(request, $scope.callback);
-
             };
 
-            $scope.maps.event.addDomListener(controlUI, 'click', function() {registerButton('bank')} );
+            $scope.maps.event.addDomListener(controlUI, 'click', function() { registerButton(searchCategory.toLowerCase())} );
 
             $scope.callback = function (results, status) {
                 if (status == $scope.maps.places.PlacesServiceStatus.OK) {
@@ -158,6 +154,18 @@ angular.module('myApp.route-planner', ['ngRoute'])
                 });
             }
 
+        };
+
+        var createButtons = function() {
+            createButton('Bank');
+            createButton('Hospital');
+        };
+
+        var createButton = function(searchCategory) {
+            $scope.searchControlDiv = document.createElement('div');
+            $scope.searchControl = new $scope.SearchControl($scope.searchControlDiv, $scope.map, searchCategory);
+            $scope.searchControlDiv.index = 1;
+            $scope.map.controls[$scope.maps.ControlPosition.TOP_RIGHT].push($scope.searchControlDiv);
         };
 
 
@@ -217,13 +225,9 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
             });
 
+            createButtons();
 
-            $scope.bankControlDiv;
-
-            $scope.bankControlDiv = document.createElement('div');
-            $scope.bankControl = new $scope.BankControl($scope.bankControlDiv, $scope.map);
-            $scope.bankControlDiv.index = 1;
-            $scope.map.controls[$scope.maps.ControlPosition.TOP_RIGHT].push($scope.bankControlDiv);
+            $scope.searchControlDiv;
 
             $scope.calcRoute()
         };
