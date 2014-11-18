@@ -100,8 +100,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
             controlUI.appendChild(controlText);
 
 
-            $scope.maps.event.addDomListener(controlUI, 'click', function () {
-                var infowindow;
+            var registerButton = function(searchCategory) {
 
                 var newYork = new $scope.maps.LatLng(40.69847032728747, -73.9514422416687);
                 var center = $scope.map.getCenter();
@@ -109,13 +108,15 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
                     location: center,
                     radius: 50000,
-                    types: ['bank']
+                    types: [searchCategory]
                 };
                 $scope.infowindow = new $scope.maps.InfoWindow();
                 var service = new $scope.maps.places.PlacesService($scope.map);
                 service.nearbySearch(request, $scope.callback);
 
-            });
+            };
+
+            $scope.maps.event.addDomListener(controlUI, 'click', function() {registerButton('bank')} );
 
             $scope.callback = function (results, status) {
                 if (status == $scope.maps.places.PlacesServiceStatus.OK) {
