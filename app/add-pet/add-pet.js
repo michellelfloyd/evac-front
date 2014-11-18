@@ -50,9 +50,10 @@ angular.module('myApp.add-pet', ['ngRoute', 'myApp.services'])
           currentAnimal.disabled = $scope.animals[0].checked;
 
         }
-      } else {
-        $scope.pet = animal;
       }
+//      else {
+////        $scope.pet = animal;
+//      }
     };
 
 
@@ -66,7 +67,7 @@ angular.module('myApp.add-pet', ['ngRoute', 'myApp.services'])
     $scope.addPets = function () {
       if ($scope.pet) {
         $scope.pet.parent = EvacPlanService.getToTake().id;
-        Restangular.all('add-pet/').customPOST($scope.pet).then(function () {
+        Restangular.all('add-pet/').customPOST($scope.pet).then(function() {
             alert("Your pets were successfully added");
             $location.path('pet-detail/');
           }, function () {

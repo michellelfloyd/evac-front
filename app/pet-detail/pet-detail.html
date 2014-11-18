@@ -5,44 +5,49 @@
 
 
         <accordion close-others="OneAtATime">
-            <!--<div class="row input-group" ng-repeat="pet in pets">-->
                 <accordion-group heading="{{pet.name}}" ng-repeat="pet in pets">
                 <div>
                     <input type="text" class="form-control" ng-model="pet.breed" placeholder="Enter Breed">
                 </div>
                 <br>
-                <br>
 
-                <div class="form-control">
+
+                <div class="input-group">
                     <span class="input-group-addon">Age</span>
                     <select class="form-control" ng-options="petAge for petAge in petAge" ng-model="pet.age"></select>
+
                 </div>
-                <br>
-                <br>
-                <br>
+               <br>
+
+                <div class="input-group">
+                    <input type="text" class="form-control" ng-model="pet.weight" placeholder="Enter Weight">
+                    <span class="input-group-addon">lbs.</span>
+                </div>
                 <br>
 
-                <div>
-                    <input type="text" class="form-control" ng-model="pet.weight" placeholder="Enter Weight">
-                </div>
-                <br>
-                <br>
                 <form action="">
                 <div ng-repeat="preference in preference">
+                    <input class="btn btn-primary"
+                           type="radio" ng-model="$parent.radioClicked"
+                           ng-value="preference"
+                          >
 
-                    <input type="radio" ng-model="preference.clicked">
-                    <span >{{preference.choice}}</span>
+                    <input class="btn btn-primary"
+                           type="radio" ng-model="$parent.radioClicked2"
+                           ng-value="preference.choice"
+                           ng-show="secondChoice">
+                    <span>{{preference.choice}}</span>
+
                     <span class="glyphicon glyphicon-info-sign"
                           button popover-placement="right"
                           popover="{{preference.info}}"
-                          popover-trigger="mouseenter">
+                          popover-trigger="mouseenter"> {{radioClicked.chosen}}
                     </span>
-                    <span ng-show="preference.chosen"></span>
-
                 </div>
                 </form>
-                <button class="btn btn-info btn-sm pad-but" type="button" ng-click="backupPlan()">Backup</button>
-            <!--</div>-->
+
+                <button class="btn btn-info btn-sm pad-but"
+                        type="button" ng-click="secondChoice=true">Backup</button>
                 </accordion-group>
         </accordion>
         <button class="btn btn-success center-block" ng-click="addDetails()">Continue</button>
