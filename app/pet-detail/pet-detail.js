@@ -17,6 +17,10 @@ angular.module('myApp.pet-detail', ['ngRoute', 'myApp.services'])
       for (var i = 0; i < 50; i++) {
         $scope.petAge.push(i);
       }
+      function changeColor(){
+        var radio = document.getElementsByClassName('(preference.choice)Radio')
+        radio[0].style.backgroundColor = 'red'
+      }
       $scope.preference = [
         {
           choice: "Leave at home",

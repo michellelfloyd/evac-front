@@ -8,7 +8,7 @@
             <!--<div class="row input-group" ng-repeat="pet in pets">-->
                 <accordion-group heading="{{pet.name}}" ng-repeat="pet in pets">
                 <div>
-                    <input type="text" class="form-control" ng-model="pet.breed">
+                    <input type="text" class="form-control" ng-model="pet.breed" placeholder="Enter Breed">
                 </div>
                 <br>
                 <br>
@@ -23,19 +23,24 @@
                 <br>
 
                 <div>
-                    <input type="text" class="form-control" ng-model="pet.weight">
+                    <input type="text" class="form-control" ng-model="pet.weight" placeholder="Enter Weight">
                 </div>
                 <br>
                 <br>
-
+                <form action="">
                 <div ng-repeat="preference in preference">
-                    <input type="checkbox"  ng-model="preference.clicked">
+
+                    <input type="radio" ng-model="preference.clicked">
                     <span >{{preference.choice}}</span>
-                    <span class="glyphicon glyphicon-info-sign" ng-model="preference.info"></span>
+                    <span class="glyphicon glyphicon-info-sign"
+                          button popover-placement="right"
+                          popover="{{preference.info}}"
+                          popover-trigger="mouseenter">
+                    </span>
                     <span ng-show="preference.chosen"></span>
 
                 </div>
-
+                </form>
                 <button class="btn btn-info btn-sm pad-but" type="button" ng-click="backupPlan()">Backup</button>
             <!--</div>-->
                 </accordion-group>
