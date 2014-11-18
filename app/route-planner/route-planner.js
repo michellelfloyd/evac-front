@@ -88,7 +88,8 @@ angular.module('myApp.route-planner', ['ngRoute'])
             controlUI.style.borderWidth = '2px';
             controlUI.style.cursor = 'pointer';
             controlUI.style.textAlign = 'center';
-            controlUI.title = 'Click to find banks nearby';
+            var searchCategory = 'Bank';
+            controlUI.title = 'Click to find ' + searchCategory +'s nearby';
             controlDiv.appendChild(controlUI);
 
             var controlText = document.createElement('div');
@@ -96,7 +97,6 @@ angular.module('myApp.route-planner', ['ngRoute'])
             controlText.style.fontSize = '12px';
             controlText.style.paddingLeft = '4px';
             controlText.style.paddingRight = '4px';
-            var searchCategory = 'Bank';
             controlText.innerHTML = '<b><i class="fa fa-bank"></i> ' +searchCategory + '</b>';
             controlUI.appendChild(controlText);
 
