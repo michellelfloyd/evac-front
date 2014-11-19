@@ -258,11 +258,13 @@ span.glyphicon {
     font-weight: normal;
     line-height: 2;
     margin-right: 10px;
+    color: orangered;
 }
 
 .destination-header.glyphicon {
     font-size: 1.4em;
     margin-right: 10px;
+    color:  orangered;
 }
 
 
@@ -280,12 +282,6 @@ span.destination-glyphicon-map-marker  {
    font-weight: bold;
 }
 
-div.destination-body-text  {
-    text-align: center;
-    padding-top: 19%;
-    width: 284px;
-    padding-bottom: 70px;
-}
 
 div.destination-header {
     margin-top: 0;
@@ -294,6 +290,15 @@ div.destination-header {
     background-color: lightgray;
     border-radius: 7px 7px 0 0;
     text-align: center;
+    text-decoration-color: orangered;
+
+}
+
+div.destination-body-text  {
+    text-align: left;
+    margin-left: 30px;
+    padding-top: 55px;
+    width: 200px;
 
 }
 
@@ -336,13 +341,29 @@ div.destination-header {
 }
 
 .add-destination {
-    text-align: right;=
+    text-align: right;
     margin-right: 10px;
     margin-bottom: 8px;
 
 }
+.form-control {
+display: block;
+margin-top: 20px;
+width: 100%;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+background-color: #fff;
+border: 1px solid orangered;
+border-radius: 7px;
+ }
 
-.destination-type .contact {
-    padding-bottom: 14px;
-    background-color: lightskyblue;
+.input-forms {
+    text-align: center;
+    height: 200px;
+    width: 100%;
+
+    
 }
