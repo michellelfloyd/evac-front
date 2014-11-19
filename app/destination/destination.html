@@ -1,24 +1,118 @@
-<div class="row">
-    <div class="col-lg-3 col-lg-offset-1 destination-panel-border">
-        <div style="margin-top: -130px;">Close Range (15-75 miles)</div>
-    </div>
-    <div class="col-lg-3 destination-panel-border">
-        <div style="margin-top: -130px;">Mid Range (76-200 miles)</div>
-    </div>
-    <div class="col-lg-3 destination-panel-border">
-        <div style="margin-top: -130px;">Long Range (201-1000+ miles)</div>
+<div ng-controller="DestinationCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4" style="padding: 20px">
+                <div class="destination-panel-border">
+                    <div class="destination-header">
+                        <h5><span class="glyphicon glyphicon-map-marker"></span>Close Range (15-75 miles)</h5>
+                    </div>
 
-    </div>
-   <label ng-repeat="route in route" heading="{{route.destinations}}">
-        <div ng-repeat="stop in route.destinations">
-            <ul>
-                <li>{{stop.name}}</li>
-                <li>{{stop.address}}</li>
-                <li>{{stop.phone}}</li>
-                <li>{{stop.type}}</li>
-            </ul>
+                    <div class="input-forms">
+                        <!--<ng-include src="'destination/add-destination.html'"></ng-include> <br/>-->
+                        <ng-include src="'destination/type.html'"></ng-include> <br/>
+                        <!--<ng-include src="'destination/household-name.html'"></ng-include> <br/>-->
+                        <!--<ng-include src="'destination/address.html'"></ng-include><br/>-->
+                        <!--<ng-include src="'destination/contact.html'"></ng-include> <br/>-->
+                    </div>
+                    <div class="destination-body">
+
+                        <div class="destination-body-text">
+
+                            <span class="glyphicon glyphicon-home"></span>
+
+                            <strong> Maggie's Place</strong><br>
+
+                            <span class="glyphicon glyphicon-map-marker"></span>
+
+                            <strong>Payson, UT</strong><br>
+
+                            <span class="glyphicon glyphicon-phone-alt"></span>
+
+                            <strong>801-400-5447</strong><br>
+
+                            <span class="glyphicon glyphicon-picture"></span>
+
+                            <strong>Route Selected</strong><br>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4" style="padding: 20px">
+                <div class="destination-panel-border">
+                    <div class="destination-header">
+                        <h5><span class="glyphicon glyphicon-map-marker"></span>Close Range (15-75 miles)</h5>
+                    </div>
+
+                    <div class="input-forms">
+                        <!--<ng-include src="'destination/add-destination.html'"></ng-include> <br/>-->
+                        <!--<ng-include src="'destination/type.html'"></ng-include> <br/>-->
+                        <!--<ng-include src="'destination/household-name.html'"></ng-include> <br/>-->
+                        <!--<ng-include src="'destination/address.html'"></ng-include><br/>-->
+                        <ng-include src="'destination/contact.html'"></ng-include> <br/>
+                    </div>
+                    <div class="destination-body">
+
+                        <div class="destination-body-text">
+
+                            <span class="glyphicon glyphicon-home"></span>
+
+                            <strong> Maggie's Place</strong><br>
+
+                            <span class="glyphicon glyphicon-map-marker"></span>
+
+                            <strong>Payson, UT</strong><br>
+
+                            <span class="glyphicon glyphicon-phone-alt"></span>
+
+                            <strong>801-400-5447</strong><br>
+
+                            <span class="glyphicon glyphicon-picture"></span>
+
+                            <strong>Route Selected</strong><br>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="col-sm-4" style="padding: 20px">
+                <div class="destination-panel-border">
+                    <div class="destination-header">
+                        <h5><span class="glyphicon glyphicon-map-marker"></span>Close Range (15-75 miles)</h5>
+                    </div>
+
+                    <div class="input-forms">
+                        <!--<ng-include src="'destination/add-destination.html'"></ng-include> <br/>-->
+                        <!--<ng-include src="'destination/type.html'"></ng-include> <br/>-->
+                        <!--<ng-include src="'destination/household-name.html'"></ng-include> <br/>-->
+                        <ng-include src="'destination/address.html'"></ng-include><br/>
+                        <!--<ng-include src="'destination/contact.html'"></ng-include> <br/>-->
+                    </div>
+                    <div class="destination-body">
+
+                        <div class="destination-body-text">
+
+                            <span class="glyphicon glyphicon-home"></span>
+
+                            <strong> Maggie's Place</strong><br>
+
+                            <span class="glyphicon glyphicon-map-marker"></span>
+
+                            <strong>Payson, UT</strong><br>
+
+                            <span class="glyphicon glyphicon-phone-alt"></span>
+
+                            <strong>801-400-5447</strong><br>
+
+                            <span class="glyphicon glyphicon-picture"></span>
+
+                            <strong>Route Selected</strong><br>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-   </label>
-
+    </div>
 </div>
 
