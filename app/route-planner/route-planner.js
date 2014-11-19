@@ -217,19 +217,19 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
             $scope.travelModes = [
                 {
-                    name: "driving",
+                    name: "Driving",
                     value: $scope.maps.TravelMode.DRIVING
                 },
                 {
-                    name: "walking",
+                    name: "Walking",
                     value: $scope.maps.TravelMode.WALKING
                 },
                 {
-                    name: "bicycling",
+                    name: "Bicycling",
                     value: $scope.maps.TravelMode.BICYCLING
                 },
                 {
-                    name: "transit",
+                    name: "Transit",
                     value: $scope.maps.TravelMode.TRANSIT
                 }
 
