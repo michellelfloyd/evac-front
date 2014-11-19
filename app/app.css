@@ -46,14 +46,16 @@
     z-index: 5;
     background-color: rgba(255,255,255,0.8);
     padding: 1em;
-    border: .2em solid #999;
+    /*border: .2em solid #999;*/
     display: inline-block;
     text-align: center;
+    font-family: Comfortaa;
+    color: #515151;
  }
 
  #map-inputs {
      height: 600px;
-     width: 15%;
+     width: 18%;
      display: inline-block;
      vertical-align: top;
      /*text-align: left;*/
@@ -61,8 +63,16 @@
      /*padding: 1em;*/
  }
 
+ #directionsTitle {
+     height: 60px;
+     width: 100%;
+     background-color: rgba(250, 250, 250, .8);
+     vertical-align:top;
+     padding-top: 0.1em;
+ }
+
  #directionsPanel {
-     height: 580px;
+     height: 520px;
      width: 100%;
      display: inline-block;
      overflow: scroll;
@@ -75,12 +85,21 @@
      background-color: rgba(120, 120, 120, .4);
  }
 
+ #dropdown {
+     font-size: 2em;
+ }
+
  #title{
      font-family: Comfortaa;
-     font-size: 4em;
+     font-size: 6em;
      text-align: center;
-     font-weight: bold;
-     color: #616161;
+     /*font-weight: bold;*/
+     color: rgba(0, 20, 173, .4);
+     background-color: rgba(255,255,255,0.8);
+ }
+ 
+ #titleMarker {
+     color: rgba(0, 20, 173, .4);
  }
 
  #ddPanel{
@@ -91,6 +110,7 @@
      /*border: .1em solid #999;*/
      background-color: rgba(0, 20, 173, .1);
      /*padding: 1em;*/
+
  }
 
  #modeDiv {
