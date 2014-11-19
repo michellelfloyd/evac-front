@@ -1,11 +1,14 @@
+<div id="title">Route Planner</div>
+
 <div id="panel">
     <div id="map-inputs">
         <div id="modeDiv">
             <h4>Travel Mode: </h4>
-            <select ng-model="travelMode" ng-options="mode.value as mode.name for mode in travelModes" ng-change="calcRoute()">
-            </select>
+            <button id="modeButtons" type="button" class="btn btn-default" ng-click="carMode()"><i class="fa fa-car"></i></button>
+            <button id="modeButtons" type="button" class="btn btn-default" ng-click="bikeMode()"><i class="fa fa-bicycle"></i></button>
+            <button id="modeButtons" type="button" class="btn btn-default" ng-click="walkMode()"><i class="fa fa-male"></i></button>
+            <button id="modeButtons" type="button" class="btn btn-default" ng-click="transitMode()"><i class="fa fa-bus"></i></button>
         </div>
-
 
         <div id="startDiv">
             <h4>Start: </h4>

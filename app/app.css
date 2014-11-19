@@ -35,7 +35,7 @@
 }
 
 #map-canvas {
-    height: 400px !important;
+    height: 600px !important;
     width: 50% !important;
     margin: 0;
     padding: 0;
@@ -52,7 +52,7 @@
  }
 
  #map-inputs {
-     height: 400px;
+     height: 600px;
      width: 15%;
      display: inline-block;
      vertical-align: top;
@@ -62,7 +62,7 @@
  }
 
  #directionsPanel {
-     height: 380px;
+     height: 580px;
      width: 100%;
      display: inline-block;
      overflow: scroll;
@@ -75,8 +75,16 @@
      background-color: rgba(120, 120, 120, .4);
  }
 
+ #title{
+     font-family: Comfortaa;
+     font-size: 4em;
+     text-align: center;
+     font-weight: bold;
+     color: #616161;
+ }
+
  #ddPanel{
-     height: 400px;
+     height: 600px;
      width: 20%;
      display: inline-block;
      vertical-align: top;
@@ -103,6 +111,11 @@
      background-color: rgba(255, 247, 0, .4);
      overflow: scroll;
      height: 10em;
+ }
+
+ #modeButtons {
+     font-size: 1.5em;
+     color: #008000;
  }
 
  #deleteWaypoint {
