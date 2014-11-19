@@ -7,30 +7,39 @@
         <accordion close-others="OneAtATime">
                 <accordion-group heading="{{pet.name}}" ng-repeat="pet in pets">
                 <div>
-                    <input type="text" class="form-control" ng-model="pet.breed" placeholder="Enter Breed">
+                    <input type="text" class="form-control marg-input" ng-model="pet.name"
+                           ng-hide="pet.type=='Fish'|| pet.type=='Reptile'">
                 </div>
-                <br>
-
-
-                <div class="input-group">
+                <div>
+                    <input type="text" class="form-control marg-input"
+                           ng-model="pet.breed"
+                           ng-hide="pet.type=='Bird' || pet.type=='Fish'
+                           || pet.type=='Reptile' || pet.type== 'Other'"
+                           placeholder="Enter Breed">
+                </div>
+                <div class="input-group marg-input" ng-hide="pet.type=='Bird'|| pet.type=='Fish' ||pet.type=='Reptile' || pet.type=='Other'">
                     <span class="input-group-addon">Age</span>
-                    <select class="form-control" ng-options="petAge for petAge in petAge" ng-model="pet.age"></select>
+                    <select class="form-control" ng-options="petAge for petAge in petAge"
+                            ng-model="pet.age"></select>
 
                 </div>
-               <br>
-
-                <div class="input-group">
-                    <input type="text" class="form-control" ng-model="pet.weight" placeholder="Enter Weight">
+                <div class="input-group marg-input" ng-hide="pet.type=='Bird' ||
+                    pet.type=='Fish'|| pet.type=='Reptile' || pet.type=='Other'">
+                    <input type="text" class="form-control" ng-model="pet.weight"
+                           placeholder="Enter Weight">
                     <span class="input-group-addon">lbs.</span>
                 </div>
-                <br>
-
+                <div class="input-group marg-input" ng-show="pet.type=='Fish'
+                    || pet.type=='Bird'">
+                    <input type="text" class="form-control" ng-model="pet.color" placeholder="Enter Color">
+                </div>
+                <textarea class="form-control" rows="3" cols="1" ng-show="radioClicked || radioClicked2" readonly="readonly">{{radioClicked.chosen}}</textarea>
                 <form action="">
                 <div ng-repeat="preference in preference">
                     <input class="btn btn-primary"
                            type="radio" ng-model="$parent.radioClicked"
-                           ng-value="preference"
-                          >
+                           ng-value="preference">
+
 
                     <input class="btn btn-primary"
                            type="radio" ng-model="$parent.radioClicked2"
@@ -41,8 +50,11 @@
                     <span class="glyphicon glyphicon-info-sign"
                           button popover-placement="right"
                           popover="{{preference.info}}"
-                          popover-trigger="mouseenter"> {{radioClicked.chosen}}
+                          popover-trigger="mouseenter">
                     </span>
+
+
+
                 </div>
                 </form>
 

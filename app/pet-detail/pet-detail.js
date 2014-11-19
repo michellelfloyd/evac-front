@@ -92,7 +92,7 @@ angular.module('myApp.pet-detail', ['ngRoute', 'myApp.services'])
     });
     $scope.addDetails = function() {
       $scope.pet.parent = EvacPlanService.getToTake().id;
-      Restangular.all('pet-detail/').customPOST($scope.pet).then(function () {
+      Restangular.all('pet/').customPOST($scope.pet).then(function () {
           alert("Your pets were successfully added");
         }, function () {
           alert("Something is broken...FIX IT!");

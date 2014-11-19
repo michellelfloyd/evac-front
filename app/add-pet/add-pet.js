@@ -18,27 +18,38 @@ angular.module('myApp.add-pet', ['ngRoute', 'myApp.services'])
       {
         type: "Dog",
         checked: false,
-        disabled: false
+        disabled: false,
+        count: 0
       },
       {
         type: "Cat",
         checked: false,
-        disabled: false
+        disabled: false,
+        count: 0
       },
       {
         type: "Bird",
         checked: false,
-        disabled: false
+        disabled: false,
+        count: 0
       },
       {
         type: "Fish",
         checked: false,
-        disabled: false
+        disabled: false,
+        count: 0
+      },
+      {
+        type: "Reptile",
+        checked: false,
+        disabled: false,
+        count: 0
       },
       {
         type: "Other",
         checked: false,
-        disabled: false
+        disabled: false,
+        count: 0
       }
 
     ];
@@ -48,37 +59,50 @@ angular.module('myApp.add-pet', ['ngRoute', 'myApp.services'])
         for (var i = 1; i < $scope.animals.length; i++) {
           var currentAnimal = $scope.animals[i];
           currentAnimal.disabled = $scope.animals[0].checked;
-
         }
       }
 //      else {
 ////        $scope.pet = animal;
 //      }
     };
-
-
-//    $scope.otherChecked = function(animal){
-//      if (animal.type == "Other"){
+//    $scope.petCount = function () {
+//      for (var x = 0; x < $scope.animals.count; x++) {
+//        var currentAnimal = $scope.animals[i];
 //
+//        Restangular.all('add-pet/').customPOST($scope.animals.type + $scope.animals.count);
+//        console.log("currentAnimal")
 //      }
+//
 //    };
 
 
     $scope.addPets = function () {
-      if ($scope.pet) {
-        $scope.pet.parent = EvacPlanService.getToTake().id;
-        Restangular.all('add-pet/').customPOST($scope.pet).then(function() {
-            alert("Your pets were successfully added");
+        for (var i = 0; i< $scope.animals.length; i++) {
+          var animal = $scope.animals[i];
+          for (var x = 0; x<animal.count; x++){
+            var countType = animal.type + (x+1);
+            var numAnimal = {
+              name: countType,
+              type: animal.type,
+              parent: EvacPlanService.getToTake().id
+            };
+            console.log("numAnimal")
+            Restangular.all('pet/').customPOST(numAnimal).then(function () {
+//            alert("Your pets were successfully added");
             $location.path('pet-detail/');
           }, function () {
             alert("Something is broken...FIX IT!");
           }
-        )
-      }
-      else{
-        $location.path('who-what/');
-      }
+        );
+          }
+        }
+    if ($scope.animals[0].checked){
+      $location.path('who-what/')
+    };
+
 
     };
 
-  }]);
+
+
+}]);
