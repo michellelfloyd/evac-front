@@ -18,10 +18,10 @@
             <!--<pre>Model: {{selected | json}}</pre>-->
             <!--<input ng-model="selected" id="input" class="controls" type="text">-->
             <!--<button ng-click="addWaypoint()">Add</button>-->
-            <ul>
+            <ul id="wwDiv">
                 <li ng-repeat="waypointName in waypointNames">{{waypointName.name}}
 
-                    <i ng-click="deleteWaypoint(waypointName)" class="fa fa-close"></i>
+                    <i id="deleteWaypoint" type="button" ng-click="deleteWaypoint(waypointName)" class="fa fa-trash-o"></i>
 
                 </li>
             </ul>

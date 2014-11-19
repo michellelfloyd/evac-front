@@ -177,12 +177,12 @@ angular.module('myApp.route-planner', ['ngRoute'])
         var createButtons = function() {
             createButton('bank', 'Bank', 'fa fa-bank');
             createButton('hospital', 'Hospital', 'fa fa-hospital-o');
-            createButton('church', 'Church', 'fa fa-bank');
+            createButton('church', 'Church', 'fa fa-fire');
             createButton('pharmacy', 'Pharmacy', 'fa fa-medkit');
-            createButton('veterinary_care', 'Vet', 'fa fa-bank');
+            createButton('veterinary_care', 'Veterinarian', 'fa fa-paw');
             createButton('grocery_or_supermarket', 'Grocery Store', 'fa fa-shopping-cart');
-            createButton('restaurant', 'Restaurant', 'fa fa-bank');
-            createButton('gas_station', 'Gas Station', 'fa fa-bank');
+            createButton('restaurant', 'Restaurant', 'fa fa-cutlery');
+            createButton('gas_station', 'Gas Station', 'fa fa-car');
             createButton('airport', 'Airport', 'fa fa-plane');
 
         };
