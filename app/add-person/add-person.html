@@ -1,10 +1,9 @@
-<div class="container">
 
-    <h2 class="who-what-title" style="margin-bottom: 0px;">Add a Person</h2>
+<h2 class="who-what-title">Add a Person</h2>
 
     <div class="form-group">
-        
-        <div class="form-group form-horizontal">
+
+        <div class="form-group form-horizontal" style="margin-top: 20px;">
             <div class="input-group pers-margin">
                 <span class="input-group-addon pers-lab">Name</span>
                 <input class="form-control pers-wid" ng-model="person.name" placeholder="Enter Name">
@@ -66,10 +65,7 @@
                 <textarea class="form-control" style="height: 100px; width: 317px;"
                           placeholder="Enter extra comments if needed..."
                           ng-model="person.comments"></textarea>
+                <button class="btn btn-success" style="margin-top: 8px !important;" ng-click="addPerson()">Save</button>
             </div>
         </div>
-        <br>
-        <button class="btn btn-success center-block" ng-click="addPerson()">Save</button>
-        <br>
     </div>
-</div>

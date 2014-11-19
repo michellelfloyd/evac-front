@@ -195,8 +195,6 @@ a.accordion-toggle:hover {
     border-bottom: solid 2px orangered;
     background-color: white;
     color: orangered;
-    padding-left: 0px !important;
-    padding-right: 0px !important;
     font-weight: 700;
 }
 
@@ -255,7 +253,6 @@ a.accordion-toggle:hover {
     font-family: 'Comfortaa', cursive;
     color: #616161;
     margin-bottom: 20px;
-    margin-left: 30px;
 }
 
 .tab-in-con {
@@ -299,6 +296,10 @@ a.accordion-toggle:hover {
 
 .pers-margin {
     margin: 8px !important;
+}
+
+.pers-margin-bottom {
+    margin: -8px !important;
 }
 
 .rotate {
