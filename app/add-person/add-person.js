@@ -9,7 +9,7 @@ angular.module('myApp.add-person', ['ngRoute', 'myApp.services'])
         });
     }])
 
-    .controller('AddPersonCtrl', ['$scope', 'Restangular', 'EvacPlanService', function ($scope, Restangular, EvacPlanService) {
+    .controller('AddPersonCtrl', ['$scope', 'Restangular', 'EvacPlanService', function ($scope, Restangular, EvacPlanService, $parent) {
 
         $scope.person = {gender: null, birthMonth: null};
         $scope.genders = ['Male', 'Female'];
@@ -31,10 +31,15 @@ angular.module('myApp.add-person', ['ngRoute', 'myApp.services'])
             $scope.person.special_conditions = condList;
         };
 
-        Restangular.all('special-conditions/').getList().then(function (specialConditions) {
-            $scope.specialConditions = specialConditions;
+        var getSpecialConditions = function() {
+            Restangular.all('special-conditions/').getList().then(function (specialConditions) {
+                $scope.specialConditions = specialConditions;
 
-        });
+            });
+        }
+
+
+
 
 
         $scope.months = [
@@ -126,9 +131,16 @@ angular.module('myApp.add-person', ['ngRoute', 'myApp.services'])
             conditionChecked();
           $scope.person.parent = EvacPlanService.getToTake().id;
             Restangular.all('add-person/').customPOST($scope.person).then(function () {
-                    alert("Your person was successfully added");
+                    $scope.$parent.getPeople();
+                    $scope.person = $scope.person = {gender: null, birthMonth: null};
+                    getSpecialConditions();
+
                 }
             )
         };
+
+        getSpecialConditions();
+
+
     }]);
 

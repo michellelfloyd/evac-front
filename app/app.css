@@ -285,6 +285,16 @@ a.accordion-toggle:hover {
     color: #616161 !important;
 }
 
+.destination-panel-border{
+    border-style: solid;
+    border-width: 5px;
+    padding:150px;
+    margin: 10px;
+    text-align: center;
+    height:350px;
+    font-weight: bold;
+}
+
 .over-buff {
     min-height: 25px;
 }
@@ -293,7 +303,6 @@ a.accordion-toggle:hover {
     font-family: 'Comfortaa', cursive;
     color: #616161;
     margin-bottom: 20px;
-    margin-left: 30px;
 }
 
 .tab-in-con {
@@ -337,7 +346,6 @@ a.accordion-toggle:hover {
 
 .pers-margin {
     margin: 8px !important;
-
 }
 
 .destination-panel-border{
@@ -369,14 +377,12 @@ span.glyphicon {
     color:  orangered;
 }
 
-
-button.destination-btn-default  {
+button.destination-btn-default {
     color: #333;
     background-color: lightskyblue;
     border-color: black;
-    padding-right:6%;
-    padding-left:2%
-
+    padding-right: 6%;
+    padding-left: 2%
 }
 
 span.destination-glyphicon-map-marker  {
@@ -393,7 +399,6 @@ div.destination-header {
     border-radius: 7px 7px 0 0;
     text-align: center;
     text-decoration-color: orangered;
-
 }
 
 div.destination-body-text  {
@@ -401,7 +406,6 @@ div.destination-body-text  {
     margin-left: 30px;
     padding-top: 55px;
     width: 200px;
-
 }
 
 .destination-type {
@@ -446,27 +450,25 @@ div.destination-body-text  {
     text-align: right;
     margin-right: 10px;
     margin-bottom: 8px;
-
 }
+
 .form-control {
-display: block;
-margin-top: 20px;
-margin-left: 20px;
-width: 85%;
-height: 34px;
-padding: 6px 12px;
-font-size: 14px;
-line-height: 1.42857143;
-color: #555;
-background-color: #fff;
-border: 1px solid orangered;
-border-radius: 7px;
+    display: block;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 85%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid orangered;
+    border-radius: 7px;
  }
 
 .input-forms {
     text-align: center;
     height: 200px;
-    width: 100%;
-
-    
+    width: 100%;    
 }
