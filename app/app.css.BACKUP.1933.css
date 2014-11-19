@@ -1,0 +1,285 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+.angular-google-map-container {
+    height: 400px;
+    width: 400px;
+}
+
+#map-canvas {
+    height: 400px !important;
+    width: 60% !important;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+ #panel {
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+ }
+
+ #directionsPanel {
+     height: 400px;
+     width: 20%;
+     display: inline-block;
+     overflow: scroll;
+ }
+div.panel-heading {
+    background-color: #ffffff !important;
+    border-radius: 10px !important;
+    -webkit-transition: 0.7s;
+    -moz-transition: 0.7s;
+    -ms-transition: 0.7s;
+    -o-transition: 0.7s;
+    transition: 0.7s;
+}
+
+div.panel-heading:hover {
+    /*text-align: center !important;*/
+    margin-left: 3em !important;
+    color: blue !important;
+}
+
+a.accordion-toggle {
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+a.accordion-toggle:hover {
+    cursor: hand;
+}
+
+div.panel-heading {
+    background-color: #ffffff !important;
+    border-radius: 10px !important;
+    -webkit-transition: 0.7s;
+    -moz-transition: 0.7s;
+    -ms-transition: 0.7s;
+    -o-transition: 0.7s;
+    transition: 0.7s;
+}
+
+div.panel-heading:hover {
+    /*text-align: center !important;*/
+    margin-left: 3em !important;
+    color: blue !important;
+}
+
+a.accordion-toggle {
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+a.accordion-toggle:hover {
+    cursor: hand;
+}
+
+.navbar-nav > li > a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    color: #616161;
+    font-size: .90em;
+    font-family: 'Comfortaa', cursive;
+    border-top: solid 2px orangered;
+    border-bottom: solid 2px orangered;
+    background-color: white;
+    margin-bottom: 15px;
+    -o-transition:.3s;
+    -ms-transition:.3s;
+    -moz-transition:.3s;
+    -webkit-transition:.3s;
+    transition:.3s;
+}
+
+.navbar-nav > li > a:hover {
+    /*background-color: blue !important;*/
+    color: white !important;
+    /*font-size: 1.15em;*/
+    background-color: orangered;
+    border-top: solid 2px orangered;
+    border-bottom: solid 2px orangered;
+}
+
+.nav-sep {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: 'Comfortaa', cursive;
+    border-top: solid 2px orangered;
+    border-bottom: solid 2px orangered;
+    background-color: white;
+    color: orangered;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    font-weight: 700;
+}
+
+
+.nav-back {
+    min-height: 55px;
+    background-image: url('img/strange_bullseyes.png');
+    border-bottom: solid 16px orangered;
+    margin-bottom: 0px;
+    padding-top: 10px;
+}
+
+.nav-outbord {
+    border-bottom: solid 4px #616161;
+}
+
+.emeri {
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+}
+
+.prep {
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+}
+
+.navbar-brand:hover .emeri {
+    color: orangered !important;
+}
+
+.navbar-brand:hover .prep {
+    color: #616161 !important;
+}
+
+.destination-panel-border{
+    border-style: solid;
+    border-width: 2px;
+    margin: 10px;
+    padding: 0 !important;
+    text-align: center;
+    height:350px;
+<<<<<<< HEAD
+    font-weight: bold;
+}
+
+.over-buff {
+    min-height: 25px;
+}
+
+.who-what-title {
+    font-family: 'Comfortaa', cursive;
+    color: #616161;
+    margin-bottom: 20px;
+    margin-left: 30px;
+}
+
+.tab-in-con {
+    /*background-color:rgba(255,255,255,0.6);*/
+    background-image: url('img/sos.png');
+    min-height: 500px;
+    padding: 30px;
+    border-radius: 30px;
+    border: solid #616161 3px;
+}
+
+.tab-out-con {
+    border-radius: 33px;
+    border: solid orangered 3px;
+    margin-bottom: 20px;
+}
+
+.nav-elem-right {
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    padding-right: 14px !important;
+}
+
+.nav-elem-left {
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    padding-left: 14px !important;
+}
+
+.chk-wid {
+    width: 150px !important;
+}
+
+.pers-wid {
+    width: 188px !important;
+}
+
+.pers-lab {
+    width: 130px !important;
+}
+
+.pers-margin {
+    margin: 8px !important;
+}
+
+.rotate {
+
+/* Safari */
+-webkit-transform: rotate(-90deg) !important;
+
+/* Firefox */
+-moz-transform: rotate(-90deg) !important;
+
+/* IE */
+-ms-transform: rotate(-90deg) !important;
+
+/* Opera */
+-o-transform: rotate(-90deg) !important;
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3) !important;
+=======
+    border-radius: 7px;
+}
+
+.destination-panel-border span {
+    margin-right: 8%;
+}
+>>>>>>> added header to desination page and styling
+
+.destination-header {
+    background-color: lightgray;
+    border-radius: 7px 7px 0 0;
+}
+
+.destination-header h5 {
+    margin-top: 0;
+    padding: 22px 0;
+
+}

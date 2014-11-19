@@ -1,18 +1,31 @@
 <div class="container">
 
-    <h2 class="who-what-title">Who will go with you?</h2>
+    <div class="col-lg-4">
+        <h2 class="who-what-title">Who will go with you?</h2>
 
-    <div class="input-group pers-margin">
+        <!--PEOPLE CHECKLIST-->
 
-
-        <div class="input-group" ng-repeat="person in people">
-                <span class="input-group-addon">
-                    <input type="checkbox" ng-model="None">
+        <div>
+            <div class="input-group" ng-repeat="person in people">
+                <span class="input-group-addon" style="margin: 0px;">
+                    <input type="checkbox" ng-model="None" style="margin: 0px;">
                 </span>
 
-            <div class="form-control chk-wid">{{ person.name}}</div>
+                <div class="form-control chk-wid" style="margin: 0px;">{{ person.name}}</div>
+            </div>
         </div>
     </div>
+
+    <!--ADD PERSON PARTIAL-->
+    <div class="col-lg-4">
+        <div ng-controller="AddPersonCtrl">
+            <ng-include src="'add-person/add-person.html'"></ng-include>
+        </div>
+    </div>
+
+
+    <!--CHOSEN PEOPLE REPORT-->
+    <div class="col-lg-12">
 
     <div class="tab-out-con">
         <div class="tab-in-con">
@@ -37,10 +50,12 @@
     </div>
 
 
+
     <p class="">
         <a href="#/pets">
             <button class="btn btn-large btn-success" type="button">Next</button>
         </a>
     </p>
+    </div>
 
 </div>

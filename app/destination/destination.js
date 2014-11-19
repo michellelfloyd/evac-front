@@ -1,20 +1,23 @@
 'use strict';
 
-angular.module('myApp.destination', ['ngRoute'])
+angular.module('myApp.destination', ['ngRoute', 'restangular'])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/destination', {
-    templateUrl: 'destination/destination.html',
-    controller: 'destinationCtrl'
-  });
-}])
+    .controller('DestinationCtrl', ['$scope', 'Restangular', function($scope, Restangular) {
+        $scope.templates =
+        [
+            {name: "address.html", url: "address.html"},
+            {name: "contact.html", url: "contact.html"},
+            {name: "household-name.html", url: "household-name.html"},
+            {name: "save.html", url: "save.html"},
+            {name: "type.html", url: "type.html"}
+        ];
 
-.controller('DestinationCtrl', ['$scope', 'Restangular', function($scope, Restangular) {
+        $scope.template = $scope.templates[0];
 
+        Restangular.all('route/').getList().then(function(route) {
+          $scope.route = route;
 
-     Restangular.all('route/').getList().then(function(route) {
-      $scope.route = route;
+        });
 
-    });
-}]);
+    }]);
 

@@ -5,9 +5,12 @@
         <label>What Pets Do You Have?</label>
 
         <div ng-repeat="animal in animals">
-            <input type="checkbox" ng-change="noneChecked(animal)" ng-model="animal.checked" ng-hide="animal.disabled">
+            <input type="checkbox" ng-change="noneChecked(animal)"
+                   ng-model="animal.checked" ng-hide="animal.disabled">
             <span ng-hide="animal.disabled">{{animal.type}}</span>
-            <input type="text" ng-model="animal.count"  ng-hide="animals[0].checked || !animal.checked" placeholder="Enter Number">
+            <input type="text" ng-model="animal.count"
+                   ng-hide="animals[0].checked || !animal.checked"
+                   placeholder="Enter Number">
 
         </div>
 

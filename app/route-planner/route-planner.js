@@ -21,6 +21,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
         $scope.waypoints = [];
         $scope.waypointNames = [];
+        $scope.currentMarkers = [];
 
 //        $scope.input = document.getElementById('searchTextField');
 //        $scope.autoComplete = new google.maps.places.Autocomplete(input);
@@ -78,9 +79,22 @@ angular.module('myApp.route-planner', ['ngRoute'])
             }
         };
 
-        $scope.BankControl = function (controlDiv, map) {
+        var removeMarkers = function() {
+
+            if ($scope.currentMarkers) {
+                for (var i = 0; i < $scope.currentMarkers.length; i++) {
+                    var currentMarker = $scope.currentMarkers[i];
+                    currentMarker.setMap(null);
+                }
+            }
+
+            $scope.currentMarkers = [];
+        };
+
+        $scope.SearchControl = function (controlDiv, map, searchCategory, buttonName, buttonIcon) {
 
             controlDiv.style.padding = '5px';
+            controlDiv.index = 10;
 
             var controlUI = document.createElement('div');
             controlUI.style.backgroundColor = 'white';
@@ -88,7 +102,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
             controlUI.style.borderWidth = '2px';
             controlUI.style.cursor = 'pointer';
             controlUI.style.textAlign = 'center';
-            controlUI.title = 'Click to find banks nearby';
+            controlUI.title = 'Click to find ' + buttonName +'s nearby';
             controlDiv.appendChild(controlUI);
 
             var controlText = document.createElement('div');
@@ -96,16 +110,17 @@ angular.module('myApp.route-planner', ['ngRoute'])
             controlText.style.fontSize = '12px';
             controlText.style.paddingLeft = '4px';
             controlText.style.paddingRight = '4px';
-            controlText.innerHTML = '<b><i class="fa fa-bank"></i> Bank</b>';
+            controlText.innerHTML = '<b><i class="' +buttonIcon + '"></i> ' +buttonName + '</b>';
             controlUI.appendChild(controlText);
 
 
             var registerButton = function(searchCategory) {
 
+                removeMarkers();
+
                 var newYork = new $scope.maps.LatLng(40.69847032728747, -73.9514422416687);
                 var center = $scope.map.getCenter();
                 var request = {
-
                     location: center,
                     radius: 50000,
                     types: [searchCategory]
@@ -113,10 +128,9 @@ angular.module('myApp.route-planner', ['ngRoute'])
                 $scope.infowindow = new $scope.maps.InfoWindow();
                 var service = new $scope.maps.places.PlacesService($scope.map);
                 service.nearbySearch(request, $scope.callback);
-
             };
 
-            $scope.maps.event.addDomListener(controlUI, 'click', function() {registerButton('bank')} );
+            $scope.maps.event.addDomListener(controlUI, 'click', function() { registerButton(searchCategory.toLowerCase())} );
 
             $scope.callback = function (results, status) {
                 if (status == $scope.maps.places.PlacesServiceStatus.OK) {
@@ -133,6 +147,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
                     position: place.geometry.location
                 });
 
+                $scope.currentMarkers.push(marker);
 
 //                console.log(place);
 //                var stringDict = JSON.stringify(place);
@@ -159,6 +174,26 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
         };
 
+        var createButtons = function() {
+            createButton('bank', 'Bank', 'fa fa-bank');
+            createButton('hospital', 'Hospital', 'fa fa-hospital-o');
+            createButton('church', 'Church', 'fa fa-fire');
+            createButton('pharmacy', 'Pharmacy', 'fa fa-medkit');
+            createButton('veterinary_care', 'Veterinarian', 'fa fa-paw');
+            createButton('grocery_or_supermarket', 'Grocery Store', 'fa fa-shopping-cart');
+            createButton('restaurant', 'Restaurant', 'fa fa-cutlery');
+            createButton('gas_station', 'Gas Station', 'fa fa-car');
+            createButton('airport', 'Airport', 'fa fa-plane');
+
+        };
+
+        var createButton = function(searchCategory, buttonName, buttonIcon) {
+            $scope.searchControlDiv = document.createElement('div');
+            $scope.searchControl = new $scope.SearchControl($scope.searchControlDiv, $scope.map, searchCategory, buttonName, buttonIcon);
+            $scope.searchControlDiv.index = 1;
+            $scope.map.controls[$scope.maps.ControlPosition.RIGHT_BOTTOM].push($scope.searchControlDiv);
+        };
+
 
         GoogleMapApi.then(function (maps) {
             $scope.maps = maps;
@@ -180,25 +215,45 @@ angular.module('myApp.route-planner', ['ngRoute'])
             $scope.directionsDisplay = new $scope.maps.DirectionsRenderer($scope.rendererOptions);
             $scope.directionsService = new $scope.maps.DirectionsService();
 
-            $scope.travelModes = [
-                {
-                    name: "driving",
-                    value: $scope.maps.TravelMode.DRIVING
-                },
-                {
-                    name: "walking",
-                    value: $scope.maps.TravelMode.WALKING
-                },
-                {
-                    name: "bicycling",
-                    value: $scope.maps.TravelMode.BICYCLING
-                },
-                {
-                    name: "transit",
-                    value: $scope.maps.TravelMode.TRANSIT
-                }
+            $scope.carMode = function() {
+                $scope.travelMode = $scope.maps.TravelMode.DRIVING;
+                $scope.calcRoute();
+            };
 
-            ];
+            $scope.bikeMode = function() {
+                $scope.travelMode = $scope.maps.TravelMode.BICYCLING;
+                $scope.calcRoute();
+            };
+
+            $scope.walkMode = function() {
+                $scope.travelMode = $scope.maps.TravelMode.WALKING;
+                $scope.calcRoute();
+            };
+
+            $scope.transitMode = function() {
+                $scope.travelMode = $scope.maps.TravelMode.TRANSIT;
+                $scope.calcRoute();
+            };
+
+//            $scope.travelModes = [
+//                {
+//                    name: "Driving",
+//                    value: $scope.maps.TravelMode.DRIVING
+//                },
+//                {
+//                    name: "Walking",
+//                    value: $scope.maps.TravelMode.WALKING
+//                },
+//                {
+//                    name: "Bicycling",
+//                    value: $scope.maps.TravelMode.BICYCLING
+//                },
+//                {
+//                    name: "Transit",
+//                    value: $scope.maps.TravelMode.TRANSIT
+//                }
+//
+//            ];
 
 
             $scope.directionsDisplay = new $scope.maps.DirectionsRenderer($scope.rendererOptions);
@@ -216,13 +271,9 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
             });
 
+            createButtons();
 
-            $scope.bankControlDiv;
-
-            $scope.bankControlDiv = document.createElement('div');
-            $scope.bankControl = new $scope.BankControl($scope.bankControlDiv, $scope.map);
-            $scope.bankControlDiv.index = 1;
-            $scope.map.controls[$scope.maps.ControlPosition.TOP_RIGHT].push($scope.bankControlDiv);
+            $scope.searchControlDiv;
 
             $scope.calcRoute()
         };
