@@ -97,7 +97,7 @@
      color: rgba(0, 20, 173, .4);
      background-color: rgba(255,255,255,0.8);
  }
- 
+
  #titleMarker {
      color: rgba(0, 20, 173, .4);
  }
@@ -142,7 +142,7 @@
      font-size: .9em;
      color: #808080;
  }
- 
+
  #deleteWaypoint:hover {
      color: blue;
  }
@@ -368,7 +368,6 @@ span.glyphicon {
     font-weight: normal;
     line-height: 2;
     margin-right: 10px;
-    color: orangered;
 }
 
 .destination-header.glyphicon {
@@ -452,7 +451,7 @@ div.destination-body-text  {
     margin-bottom: 8px;
 }
 
-.form-control {
+.address-form {
     display: block;
     margin-top: 20px;
     margin-left: 20px;
@@ -470,5 +469,13 @@ div.destination-body-text  {
 .input-forms {
     text-align: center;
     height: 200px;
-    width: 100%;    
+    width: 100%;
+}
+
+.pad-but {
+    margin-top:10px;
+    padding: 2px;
+}
+.marg-input {
+    margin-bottom:10px;
 }
