@@ -1,40 +1,44 @@
+<div id="title"><i id="titleMarker" class="fa fa-globe"></i> Route Planner</div>
+
 <div id="panel">
     <div id="map-inputs">
         <div id="modeDiv">
-            <h4>Travel Mode: </h4>
-            <select ng-model="travelMode" ng-options="mode.value as mode.name for mode in travelModes" ng-change="calcRoute()">
-            </select>
+            <h3>Travel Mode</h3>
+            <button id="modeButtons" type="button" class="btn btn-default" ng-click="carMode()"><i class="fa fa-car"></i></button>
+            <button id="modeButtons" type="button" class="btn btn-default" ng-click="bikeMode()"><i class="fa fa-bicycle"></i></button>
+            <button id="modeButtons" type="button" class="btn btn-default" ng-click="walkMode()"><i class="fa fa-male"></i></button>
+            <button id="modeButtons" type="button" class="btn btn-default" ng-click="transitMode()"><i class="fa fa-bus"></i></button>
         </div>
 
-
         <div id="startDiv">
-            <h4>Start: </h4>
-            <select ng-model="start" ng-options="location for location in locations" ng-change="calcRoute()">
+            <h3>Start</h3>
+            <select id="dropdown" ng-model="start" ng-options="location for location in locations" ng-change="calcRoute()">
             </select>
         </div>
 
         <div id="waypointsDiv">
-            <h4>Waypoints:</h4>
+            <h3>Waypoints</h3>
             <!--<pre>Model: {{selected | json}}</pre>-->
             <!--<input ng-model="selected" id="input" class="controls" type="text">-->
             <!--<button ng-click="addWaypoint()">Add</button>-->
             <ul id="wwDiv">
-                <li ng-repeat="waypointName in waypointNames">{{waypointName.name}}
-
-                    <i id="deleteWaypoint" type="button" ng-click="deleteWaypoint(waypointName)" class="fa fa-trash-o"></i>
+                <li ng-repeat="waypointName in waypointNames">{{waypointName.name}} <i id="deleteWaypoint" type="button" ng-click="deleteWaypoint(waypointName)" class="fa fa-trash-o"></i>
 
                 </li>
             </ul>
         </div>
         <div id="endDiv">
-            <h4>End: </h4>
-            <select ng-model="end" ng-options="location for location in locations" ng-change="calcRoute()">
+            <h3>End</h3>
+            <select id="dropdown" ng-model="end" ng-options="location for location in locations" ng-change="calcRoute()">
             </select>
         </div>
     </div>
 
     <div id="map-canvas"></div>
     <div id="ddPanel">
+        <div id="directionsTitle">
+            <h3>Directions</h3>
+        </div>
         <div id="directionsPanel"></div>
         <div id="distancePanel">
             <p>Total Distance: <span id="total"></span></p>

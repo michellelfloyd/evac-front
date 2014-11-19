@@ -215,25 +215,45 @@ angular.module('myApp.route-planner', ['ngRoute'])
             $scope.directionsDisplay = new $scope.maps.DirectionsRenderer($scope.rendererOptions);
             $scope.directionsService = new $scope.maps.DirectionsService();
 
-            $scope.travelModes = [
-                {
-                    name: "driving",
-                    value: $scope.maps.TravelMode.DRIVING
-                },
-                {
-                    name: "walking",
-                    value: $scope.maps.TravelMode.WALKING
-                },
-                {
-                    name: "bicycling",
-                    value: $scope.maps.TravelMode.BICYCLING
-                },
-                {
-                    name: "transit",
-                    value: $scope.maps.TravelMode.TRANSIT
-                }
+            $scope.carMode = function() {
+                $scope.travelMode = $scope.maps.TravelMode.DRIVING;
+                $scope.calcRoute();
+            };
 
-            ];
+            $scope.bikeMode = function() {
+                $scope.travelMode = $scope.maps.TravelMode.BICYCLING;
+                $scope.calcRoute();
+            };
+
+            $scope.walkMode = function() {
+                $scope.travelMode = $scope.maps.TravelMode.WALKING;
+                $scope.calcRoute();
+            };
+
+            $scope.transitMode = function() {
+                $scope.travelMode = $scope.maps.TravelMode.TRANSIT;
+                $scope.calcRoute();
+            };
+
+//            $scope.travelModes = [
+//                {
+//                    name: "Driving",
+//                    value: $scope.maps.TravelMode.DRIVING
+//                },
+//                {
+//                    name: "Walking",
+//                    value: $scope.maps.TravelMode.WALKING
+//                },
+//                {
+//                    name: "Bicycling",
+//                    value: $scope.maps.TravelMode.BICYCLING
+//                },
+//                {
+//                    name: "Transit",
+//                    value: $scope.maps.TravelMode.TRANSIT
+//                }
+//
+//            ];
 
 
             $scope.directionsDisplay = new $scope.maps.DirectionsRenderer($scope.rendererOptions);
