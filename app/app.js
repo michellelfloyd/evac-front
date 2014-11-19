@@ -8,6 +8,7 @@ angular.module('myApp', [
         'myApp.version',
         'ui.bootstrap',
         'restangular',
+        'myApp.services',
         'myApp.who-what',
         'myApp.version',
         'myApp.destination',
@@ -18,7 +19,8 @@ angular.module('myApp', [
         'myApp.travelTools',
         'myApp.emergency',
         'myApp.add-person',
-        'myApp.add-pet'
+        'myApp.add-pet',
+        'myApp.pet-detail'
     ]).
     config(['$routeProvider', 'GoogleMapApiProvider'.ns(), 'RestangularProvider', function ($routeProvider, GoogleMapApi, RestangularProvider) {
         $routeProvider.when('/who-what', {

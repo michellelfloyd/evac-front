@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.add-person', ['ngRoute'])
+angular.module('myApp.add-person', ['ngRoute', 'myApp.services'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/add-person', {
@@ -9,7 +9,8 @@ angular.module('myApp.add-person', ['ngRoute'])
         });
     }])
 
-    .controller('AddPersonCtrl', ['$scope', 'Restangular', function ($scope, Restangular) {
+    .controller('AddPersonCtrl', ['$scope', 'Restangular', 'EvacPlanService', function ($scope, Restangular, EvacPlanService) {
+
         $scope.person = {gender: null, birthMonth: null};
         $scope.genders = ['Male', 'Female'];
         $scope.curYear = parseInt(new Date().getFullYear());
@@ -114,7 +115,6 @@ angular.module('myApp.add-person', ['ngRoute'])
         ];
 
 
-
         $scope.genderChange = function () {
             if ($scope.person.gender == 'Male') {
                 $scope.pickRelatives = $scope.malerelative
@@ -124,6 +124,7 @@ angular.module('myApp.add-person', ['ngRoute'])
         };
         $scope.addPerson = function () {
             conditionChecked();
+          $scope.person.parent = EvacPlanService.getToTake().id;
             Restangular.all('add-person/').customPOST($scope.person).then(function () {
                     alert("Your person was successfully added");
                 }
