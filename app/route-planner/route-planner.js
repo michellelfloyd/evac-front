@@ -227,7 +227,10 @@ angular.module('myApp.route-planner', ['ngRoute', 'restangular'])
         });
 
         $scope.loadRoute = function() {
-
+            $scope.start = $scope.currentRoute.origin;
+            $scope.end = $scope.currentRoute.destination;
+            $scope.travelMode = $scope.maps.TravelMode[$scope.currentRoute.travel_mode];
+            $scope.calcRoute();
         };
 
         $scope.initialize = function () {
