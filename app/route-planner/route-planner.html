@@ -32,6 +32,20 @@
             <select id="dropdown" ng-model="end" ng-options="location for location in locations" ng-change="calcRoute()">
             </select>
         </div>
+        <div id="saveDiv">
+            <h3>Save Route</h3>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Route Name" ng-model="routeName">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-primary" ng-click="addMyRoute()"><i class="fa fa-save"></i> Save</button>
+                </span>
+            </div>
+        </div>
+        <div id="waypointsDiv">
+            <h3>My Routes</h3>
+            <select id="dropdown" ng-model="currentRoute" ng-options="myRoute.name for myRoute in myRoutes" ng-change="loadRoute()">
+            </select>
+        </div>
     </div>
 
     <div id="map-canvas"></div>

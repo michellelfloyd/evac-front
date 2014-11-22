@@ -114,7 +114,6 @@
  }
 
  #modeDiv {
-     /*border: .2em solid blue;*/
      padding: 1em;
      background-color: rgba(0, 20, 173, .4);
  }
@@ -155,6 +154,16 @@
      /*border: .2em solid red;*/
      padding: 1em;
      background-color: rgba(356, 100, 59, .4);
+ }
+
+ #saveButton{
+    font-size: 1.5em;
+     color: #008000;
+ }
+
+ #saveDiv {
+     padding: 1em;
+     background-color: rgba(0, 20, 173, .4);
  }
  
 div.panel-heading {
