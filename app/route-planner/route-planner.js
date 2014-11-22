@@ -1,7 +1,7 @@
 'use strict';
 var globalWaypoints = [];
 
-angular.module('myApp.route-planner', ['ngRoute'])
+angular.module('myApp.route-planner', ['ngRoute', 'restangular'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/route-planner', {
@@ -10,7 +10,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
         });
     }])
 
-    .controller('RoutePlannerCtrl', ['$scope', 'GoogleMapApi'.ns(), function ($scope, GoogleMapApi) {
+    .controller('RoutePlannerCtrl', ['$scope', 'GoogleMapApi'.ns(), 'Restangular', function ($scope, GoogleMapApi, Restangular) {
 
         $scope.locations = [
             "Orem, UT",
@@ -22,6 +22,7 @@ angular.module('myApp.route-planner', ['ngRoute'])
         $scope.waypoints = [];
         $scope.waypointNames = [];
         $scope.currentMarkers = [];
+        $scope.myRoutes = [];
 
 //        $scope.input = document.getElementById('searchTextField');
 //        $scope.autoComplete = new google.maps.places.Autocomplete(input);
@@ -89,6 +90,30 @@ angular.module('myApp.route-planner', ['ngRoute'])
             }
 
             $scope.currentMarkers = [];
+        };
+
+        $scope.addMyRoute = function() {
+            var myRouteName = $scope.routeName;
+            var myRouteOrigin = $scope.start;
+            var myRouteDestination = $scope.end;
+            var myRouteWaypoints = [$scope.waypoints];
+            var myRouteWaypointNames = [$scope.waypointNames];
+            var myRouteTravelMode = $scope.travelMode;
+
+            var myRoute = {
+                name : myRouteName,
+                origin : myRouteOrigin,
+                destination : myRouteDestination,
+                waypoints : myRouteWaypoints,
+                waypoint_names : myRouteWaypointNames,
+                travel_mode : myRouteTravelMode
+            };
+//            $scope.myRoutes.push(myRouteName, myRouteOrigin, myRouteDestination, myRouteWaypoints);
+            Restangular.all('map-route/').customPOST(myRoute).then(function(data){
+
+            });
+
+
         };
 
         $scope.SearchControl = function (controlDiv, map, searchCategory, buttonName, buttonIcon) {
@@ -201,6 +226,10 @@ angular.module('myApp.route-planner', ['ngRoute'])
             $scope.initialize();
         });
 
+        $scope.loadRoute = function() {
+
+        };
+
         $scope.initialize = function () {
 
 
@@ -271,11 +300,17 @@ angular.module('myApp.route-planner', ['ngRoute'])
 
             });
 
+            Restangular.all('map-route/').getList().then(function(data){
+                $scope.myRoutes = data;
+                console.log($scope.myRoutes);
+            });
+
             createButtons();
 
             $scope.searchControlDiv;
 
             $scope.calcRoute()
+
         };
 
         $scope.calcRoute = function () {
@@ -307,5 +342,6 @@ angular.module('myApp.route-planner', ['ngRoute'])
             total = total / 1000.0;
                 var totalMiles = total * 0.621371;
             document.getElementById('total').innerHTML = totalMiles + ' mi - ' + total + ' km';
-        }
+        };
+
     }]);
