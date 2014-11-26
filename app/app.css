@@ -479,3 +479,14 @@ div.destination-body-text  {
 .marg-input {
     margin-bottom:10px;
 }
+
+.pet-save-but {
+    background-color: #666666;
+    color: white;
+}
+
+.back-style {
+    font-family: Segoe UI Semibold;
+    text-decoration: underline;
+
+}
