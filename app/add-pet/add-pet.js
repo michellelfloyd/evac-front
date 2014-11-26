@@ -10,9 +10,13 @@ angular.module('myApp.add-pet', ['ngRoute', 'myApp.services'])
   }])
 
   .controller('AddPetCtrl', ['$scope', 'Restangular', 'EvacPlanService', '$location', function ($scope, Restangular, EvacPlanService, $location) {
+//    $scope.typeNum = [];
+//    for (var i = 1; i < 10; i++){
+//      $scope.typeNum
+//    }
     $scope.animals = [
       {
-        type: "None",
+        type: "Don't have any pets",
         checked: false
       },
       {
@@ -55,7 +59,7 @@ angular.module('myApp.add-pet', ['ngRoute', 'myApp.services'])
     ];
 
     $scope.noneChecked = function (animal) {
-      if (animal.type == "None") {
+      if (animal.type == "Don't have any pets") {
         for (var i = 1; i < $scope.animals.length; i++) {
           var currentAnimal = $scope.animals[i];
           currentAnimal.disabled = $scope.animals[0].checked;
