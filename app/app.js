@@ -8,6 +8,7 @@ angular.module('myApp', [
         'myApp.version',
         'ui.bootstrap',
         'restangular',
+        'myApp.user',
         'myApp.services',
         'myApp.who-what',
         'myApp.version',
@@ -43,4 +44,13 @@ angular.module('myApp', [
         $routeProvider.otherwise({redirectTo: '/who-what'});
 
         RestangularProvider.setBaseUrl('http://localhost:8001');
-    }]);
+    }])
+//  .run(function(){
+//      RestangularProvider.setFullRequestInterceptor(function(element, operation, route, url, headers, params) {
+////      var token = User.getToken();
+////      var token = $cookieStore.get('token');
+//      if (token) headers['Authorization'] = 'Token '+token;
+//
+//      return { element: element, params: params, headers: headers }
+//    });
+//  })
