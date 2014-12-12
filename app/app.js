@@ -8,6 +8,7 @@ angular.module('myApp', [
         'myApp.version',
         'ui.bootstrap',
         'restangular',
+        'myApp.user',
         'myApp.services',
         'myApp.who-what',
         'myApp.version',
@@ -20,15 +21,16 @@ angular.module('myApp', [
         'myApp.emergency',
         'myApp.add-person',
         'myApp.add-pet',
-        'myApp.pet-detail'
+        'myApp.pet-detail',
+        'ngCookies'
     ]).
     config(['$routeProvider', 'GoogleMapApiProvider'.ns(), 'RestangularProvider', function ($routeProvider, GoogleMapApi, RestangularProvider) {
-        $routeProvider.when('/who-what', {
+        $routeProvider
+        .when('/who-what', {
             templateUrl: 'who-what/who-what.html',
             controller: 'WhoWhatCtrl'
-        });
-
-        $routeProvider.when('/destination', {
+        })
+        .when('/destination', {
             templateUrl: 'destination/destination.html',
             controller: 'DestinationCtrl'
         });
@@ -43,4 +45,30 @@ angular.module('myApp', [
         $routeProvider.otherwise({redirectTo: '/who-what'});
 
         RestangularProvider.setBaseUrl('http://localhost:8001');
-    }]);
+    }])
+  .run(['$cookieStore', 'Restangular', '$location', 'UserService', '$rootScope',
+   function($cookieStore, RestangularProvider, $location, UserService, $rootScope){
+    var LOGIN = '/login';
+
+    RestangularProvider.setFullRequestInterceptor(function(element, operation, route, url, headers, params) {
+      var token = $cookieStore.get('token');
+      if (token) headers['Authorization'] = 'Token '+token;
+
+      return { element: element, params: params, headers: headers }
+    });
+
+
+    var authCheck = function(event, next, current) {
+      if (UserService.isAuthenticating()) return;
+      if (!UserService.isLoggedIn()) {
+        // not logged in so redirect back to login
+        $location.path(LOGIN);
+      }
+    };
+
+    // if not logged in, reroute, logout and don't load called controller
+    $rootScope.$on("$locationChangeStart", authCheck);
+
+    // if url is typed in, locationChangeStart doesn't seem to work
+    $rootScope.$on("$routeChangeStart", authCheck);
+  }]);
