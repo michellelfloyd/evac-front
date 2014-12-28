@@ -114,7 +114,6 @@
  }
 
  #modeDiv {
-     /*border: .2em solid blue;*/
      padding: 1em;
      background-color: rgba(0, 20, 173, .4);
  }
@@ -155,6 +154,16 @@
      /*border: .2em solid red;*/
      padding: 1em;
      background-color: rgba(356, 100, 59, .4);
+ }
+
+ #saveButton{
+    font-size: 1.5em;
+     color: #008000;
+ }
+
+ #saveDiv {
+     padding: 1em;
+     background-color: rgba(0, 20, 173, .4);
  }
  
 div.panel-heading {
@@ -478,4 +487,15 @@ div.destination-body-text  {
 }
 .marg-input {
     margin-bottom:10px;
+}
+
+.pet-save-but {
+    background-color: #666666;
+    color: white;
+}
+
+.back-style {
+    font-family: Segoe UI Semibold;
+    text-decoration: underline;
+
 }

@@ -10,6 +10,11 @@
                     <input type="text" class="form-control marg-input" ng-model="pet.name"
                            ng-hide="pet.type=='Fish'|| pet.type=='Reptile'">
                 </div>
+                <div class="input-group" ng-show="pet.type=='Other'">
+                    <span class="input-group-addon">Enter Pet Type</span>
+                    <input type="text" class="form-control marg-input" ng-model="pet.type"
+                           >
+                </div>
                 <div>
                     <input type="text" class="form-control marg-input"
                            ng-model="pet.breed"
@@ -17,7 +22,7 @@
                            || pet.type=='Reptile' || pet.type== 'Other'"
                            placeholder="Enter Breed">
                 </div>
-                <div class="input-group marg-input" ng-hide="pet.type=='Bird'|| pet.type=='Fish' ||pet.type=='Reptile' || pet.type=='Other'">
+                <div class="input-group marg-input" ng-hide="pet.type=='Bird'|| pet.type=='Fish' || pet.type=='Reptile' || pet.type=='Other'">
                     <span class="input-group-addon">Age</span>
                     <select class="form-control" ng-options="petAge for petAge in petAge"
                             ng-model="pet.age"></select>
@@ -33,7 +38,8 @@
                     || pet.type=='Bird'">
                     <input type="text" class="form-control" ng-model="pet.color" placeholder="Enter Color">
                 </div>
-                <textarea class="form-control" rows="3" cols="1" ng-show="radioClicked || radioClicked2" readonly="readonly">{{radioClicked.chosen}}</textarea>
+                <textarea class="form-control" rows="3" cols="1" ng-show="radioClicked || radioClicked2" readonly="readonly">{{radioClicked.chosen}}
+                </textarea>
                 <form action="">
                 <div ng-repeat="preference in preference">
                     <input class="btn btn-primary"
@@ -58,8 +64,8 @@
                 </div>
                 </form>
 
-                <button class="btn btn-info btn-sm pad-but"
-                        type="button" ng-click="secondChoice=true">Backup</button>
+                <button class="btn btn-link pad-but back-style"
+                        type="button" ng-click="secondChoice=true">Add Backup</button>
                 </accordion-group>
         </accordion>
         <button class="btn btn-success center-block" ng-click="addDetails()">Continue</button>
